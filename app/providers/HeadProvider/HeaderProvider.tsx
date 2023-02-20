@@ -14,7 +14,7 @@ const HeadProvider: FC<IHeadProvider> = ({ children }) => {
 				startPosition={0.3}
 				stopDelayMs={200}
 				height={3}
-				color="#1976d2"
+				color="#48B9B7"
 			/>
 			<Head>
 				<meta charSet="UTF-8" />

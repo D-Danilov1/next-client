@@ -10,7 +10,8 @@ module.exports = {
 			white: colors.white,
 			black: colors.black,
 			transparent: colors.transparent,
-			blue: '#1976d2',
+			blue: '#48B9B7',
+			dark: '#141416',
 		},
 		extend: {
 			screens: {
