@@ -1,4 +1,4 @@
-# fulfilment-front
+# next-front
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/DeDyJl9/fulfilment-front.git
+git remote add origin https://gitlab.com/DeDyJl9/next-front.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/DeDyJl9/fulfilment-front/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.com/DeDyJl9/next-front/-/settings/integrations)
 
 ## Collaborate with your team
 
