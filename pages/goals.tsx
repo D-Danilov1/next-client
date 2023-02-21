@@ -6,6 +6,6 @@ const GoalsPage: NextPageAuth = () => {
 	return <Goals />
 }
 
-GoalsPage.isOnlyUser = true
+// GoalsPage.isOnlyUser = true
 
 export default GoalsPage

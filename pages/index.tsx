@@ -5,6 +5,6 @@ const HomePage: NextPageAuth = () => {
 	return <Home />
 }
 
-HomePage.isOnlyUser = true
+// HomePage.isOnlyUser = true
 
 export default HomePage
