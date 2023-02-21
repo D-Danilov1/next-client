@@ -1,0 +1,18 @@
+.wrapper {
+	@apply max-w-[450px] mx-auto;
+	.card {
+		@apply flex items-center justify-center gap-3 bg-[#242328] py-4 px-5 cursor-pointer rounded-lg mb-4;
+		> svg {
+			@apply w-6 h-6;
+		}
+	}
+	> p {
+		@apply mb-3;
+	}
+	.img {
+		@apply flex justify-between gap-4;
+		> div {
+			@apply w-1/2;
+		}
+	}
+}
