@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { errorCatch } from 'api/api.helpers'
-import { toastr } from 'react-redux-toastr'
 
 import { AuthService } from '@/services/auth/auth.service'
 
@@ -12,7 +11,18 @@ export const login = createAsyncThunk<IAuthResponse, IAuthUser>(
 		try {
 			return await AuthService.login(email, password)
 		} catch (error) {
-			toastr.error('Ошибка', 'Неверная почта или пароль')
+			return thunkAPI.rejectWithValue(error)
+		}
+	}
+)
+
+export const registration = createAsyncThunk<IAuthResponse, IAuthUser>(
+	'auth/registration',
+	async ({ email, password }, thunkAPI) => {
+		try {
+			const response = await AuthService.register(email, password)
+			return response
+		} catch (error) {
 			return thunkAPI.rejectWithValue(error)
 		}
 	}

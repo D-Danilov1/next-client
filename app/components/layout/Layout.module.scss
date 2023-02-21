@@ -1,17 +1,17 @@
 $bar-width: 250px;
 
 .layout {
-	@apply relative ;
+	@apply relative;
 	> div:first-child {
 		width: $bar-width;
-		@apply bg-dark fixed top-0 bottom-0 overflow-y-scroll  sm:static sm:w-full;
+		@apply bg-dark fixed top-0 bottom-0 overflow-y-scroll text-gray sm:h-max sm:w-full;
 	}
 	::-webkit-scrollbar {
 		@apply w-3 h-3;
 	}
 	> .center {
 		margin: 0 0 0px $bar-width;
-		@apply p-10 pt-6 xxl2:p-5 xxl2:pl-6 sm:ml-0;
+		@apply p-10 pt-6 sm:p-0 sm:pt-24 sm:m-0;
 		.header {
 			@apply flex justify-end;
 		}
