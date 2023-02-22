@@ -1,4 +1,6 @@
+import { getCoursesUrl } from 'config/api.config'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 // import 'react-tabs/style/react-tabs.css'
 import YouTube, { YouTubeProps } from 'react-youtube'
@@ -10,8 +12,13 @@ import SubHeading from '@/components/ui/sub-heading/SubHeading'
 import CourseImg from '@/assets/images/course.jpg'
 
 import styles from './Home.module.scss'
+import { useHome } from './useHome'
+import { getCourseUrl } from 'config/url.config'
 
 const Home = () => {
+	const { courses } = useHome()
+
+	console.log(courses)
 	const onPlayerReady: YouTubeProps['onReady'] = (event) => {
 		// access to player in all event handlers via event.target
 		event.target.pauseVideo()
@@ -21,7 +28,6 @@ const Home = () => {
 		height: '330px',
 		width: '100%',
 	}
-
 	return (
 		<Layout>
 			<Heading title="Тренировки" />
@@ -48,32 +54,26 @@ const Home = () => {
 					/>
 					<p className={styles.text}>Выберите курс</p>
 					<div className={styles.cards}>
-						<div className={styles.card}>
-							<Image
-								src={CourseImg}
-								width={400}
-								height={100}
-								alt="course"
-								draggable={false}
-							/>
-							<p>Средний про уровень</p>
-							<div className={styles.btn}>
-								<p>Подробнее</p>
+						{courses?.map((course) => (
+							<div className={styles.card}>
+								<Link href={getCourseUrl(String(course.id))} key={course.id}>
+									<Image
+										src={course.image}
+										width={400}
+										height={100}
+										alt="course"
+										draggable={false}
+									/>
+									<div className={styles.content}>
+										<p>{course.name}</p>
+										<span>{course.description}</span>
+									</div>
+									<div className={styles.btn}>
+										<p>Подробнее</p>
+									</div>
+								</Link>
 							</div>
-						</div>
-						<div className={styles.card}>
-							<Image
-								src={CourseImg}
-								width={400}
-								height={100}
-								alt="course"
-								draggable={false}
-							/>
-							<p>Средний про уровень</p>
-							<div className={styles.btn}>
-								<p>Подробнее</p>
-							</div>
-						</div>
+						))}
 					</div>
 				</TabPanel>
 				<TabPanel>

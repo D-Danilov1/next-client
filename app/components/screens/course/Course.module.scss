@@ -1,0 +1,32 @@
+.tablist {
+	border: 1px solid #212123;
+	@apply flex items-center justify-start pl-5 gap-10 py-3 border-l-0 border-r-0;
+}
+.days {
+	@apply flex items-center justify-start px-5 pt-2 gap-5 mb-5;
+	.day {
+		@apply p-2 px-4 w-32 rounded-md border-blue border;
+		> span {
+			@apply text-gray mb-1;
+		}
+		> p {
+			@apply text-white border-none;
+		}
+	}
+}
+.btn {
+	transition: all 0.5s ease;
+	@apply mb-3 mx-auto px-14 py-2.5 rounded-xl max-w-[300px] text-center border-blue border flex items-center justify-center;
+}
+.btn:hover {
+	@apply opacity-100;
+}
+.lesson {
+	@apply relative mb-5 block;
+	> img {
+		@apply w-full object-cover max-h-[300px];
+	}
+	> p {
+		@apply absolute bottom-8 left-8 text-6xl;
+	}
+}

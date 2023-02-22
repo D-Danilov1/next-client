@@ -9,14 +9,19 @@
 	@apply flex items-center gap-5 justify-between flex-wrap px-5;
 	.card {
 		@apply relative rounded-2xl cursor-pointer w-full;
-		> img {
-			@apply h-full w-full max-h-[250px] object-cover rounded-2xl;
-		}
-		> p {
-			@apply absolute bottom-5 left-5 text-xl text-white select-none;
-		}
-		.btn {
-			@apply absolute bottom-4 text-sm right-5 text-white select-none p-2 border-blue border rounded-xl;
+		> a {
+			> img {
+				@apply h-full w-full max-h-[250px] object-cover rounded-2xl;
+			}
+			.content {
+				@apply absolute bottom-5 left-5 text-xl text-white select-none;
+				> span {
+					@apply text-base;
+				}
+			}
+			.btn {
+				@apply absolute bottom-4 text-sm right-5 text-white select-none p-2 border-blue border rounded-xl;
+			}
 		}
 	}
 }
