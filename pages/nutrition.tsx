@@ -6,6 +6,6 @@ const NutritionPage: NextPageAuth = () => {
 	return <Nutrition />
 }
 
-// NutritionPage.isOnlyUser = true
+NutritionPage.isOnlyUser = true
 
 export default NutritionPage

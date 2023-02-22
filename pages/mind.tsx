@@ -6,6 +6,6 @@ const MindPage: NextPageAuth = () => {
 	return <Mind />
 }
 
-// MindPage.isOnlyUser = true
+MindPage.isOnlyUser = true
 
 export default MindPage
