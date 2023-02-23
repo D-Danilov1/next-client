@@ -27,6 +27,39 @@
 		@apply w-full object-cover max-h-[300px];
 	}
 	> p {
-		@apply absolute bottom-8 left-8 text-6xl;
+		@apply absolute bottom-8 left-8 text-6xl sm2:text-3xl sm2:left-4 sm2:bottom-4;
+	}
+
+	> button {
+		@apply absolute bottom-8 right-8 text-2xl border-blue border px-5 py-1 rounded-lg sm2:px-2 sm:text-xl sm2:bottom-4 sm2:right-4;
+	}
+}
+
+.video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 1000;
+	background-color: rgba(#080a12, 0.85);
+	transition: opacity 0.3s, visibility 0.3s;
+	display: flex;
+	justify-content: center;
+}
+
+.close {
+	display: block;
+	position: absolute;
+	z-index: 2;
+	top: 15px;
+	left: 15px;
+
+	color: #fff;
+	opacity: 0.5;
+	transition: all 0.3s ease;
+	> svg {
+		width: 30px;
+		height: 30px;
 	}
 }

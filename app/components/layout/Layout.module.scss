@@ -1,7 +1,7 @@
 $bar-width: 250px;
 
 .layout {
-	@apply relative;
+	@apply relative sm:mb-5;
 	> div:first-child {
 		width: $bar-width;
 		@apply bg-dark fixed top-0 bottom-0 overflow-y-scroll text-gray sm:h-max sm:w-full;

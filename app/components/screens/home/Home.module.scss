@@ -14,13 +14,13 @@
 				@apply h-full w-full max-h-[250px] object-cover rounded-2xl;
 			}
 			.content {
-				@apply absolute bottom-5 left-5 text-xl text-white select-none;
+				@apply absolute bottom-5 left-5 text-xl sm3:text-lg text-white select-none;
 				> span {
-					@apply text-base;
+					@apply text-base max-w-[300px] block sm3:hidden;
 				}
 			}
 			.btn {
-				@apply absolute bottom-4 text-sm right-5 text-white select-none p-2 border-blue border rounded-xl;
+				@apply absolute bottom-4 text-sm right-5 text-white select-none p-2 border-blue border rounded-xl sm:text-xs sm:p-1 sm:px-2;
 			}
 		}
 	}

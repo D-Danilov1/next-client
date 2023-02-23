@@ -23,6 +23,7 @@
 		"js-cookie": "^3.0.1",
 		"next": "13.0.2",
 		"nextjs-progressbar": "^0.0.16",
+		"plyr-react": "^5.1.2",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-hook-form": "^7.43.0",
@@ -32,7 +33,6 @@
 		"react-query": "^3.39.3",
 		"react-redux": "^8.0.5",
 		"react-tabs": "^6.0.0",
-		"react-youtube": "^10.1.0",
 		"sass": "^1.56.1",
 		"sharp": "^0.31.2"
 	},
