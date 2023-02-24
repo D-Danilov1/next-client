@@ -19,8 +19,10 @@ module.exports = {
 				xxl: { max: '1185px' },
 				xxl2: { max: '1000px' },
 				sm: { max: '768px' },
+				sm15: { max: '550px' },
 				sm2: { max: '450px' },
 				sm3: { max: '420px' },
+				sm4: { max: '350px' },
 			},
 			keyframes: {
 				fade: {

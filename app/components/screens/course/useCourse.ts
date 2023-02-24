@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 
+import { ICompletedLessons } from '@/shared/types/request.types'
+
+import { CompletedLessonsService } from '@/services/completedLessons.service'
 import { CoursesService } from '@/services/courses.service'
-import { DaysService } from '@/services/days.service'
-import { LessonsService } from '@/services/lessons.service'
-import { WeeksService } from '@/services/weeks.service'
+import { LessonsInCoursesService } from '@/services/lessonsInCourses.service'
 
 export const useCourse = () => {
 	const { query } = useRouter()
@@ -19,30 +20,53 @@ export const useCourse = () => {
 		}
 	)
 
-	const { data: lesson } = useQuery(
-		'get lessons',
-		() => LessonsService.findAll(),
+	const { data: courseLessons } = useQuery(
+		'get course lessons',
+		() => LessonsInCoursesService.findByCourseId(String(query?.id)),
 		{
 			select: ({ data }) => data.response,
 			enabled: !!query.id,
 		}
 	)
 
-	const { data: weeks } = useQuery('get weeks', () => WeeksService.findAll(), {
-		select: ({ data }) => data.response,
-	})
+	const { data: completedLesson, isLoading } = useQuery(
+		'get completed lesson',
+		(id) => CompletedLessonsService.findBySchedule(id),
+		{
+			select: ({ data }) => data.response,
+		}
+	)
 
-	const { data: days } = useQuery('get days', () => DaysService.findAll(), {
-		select: ({ data }) => data.response,
-	})
+	const { data: courseSortedLessons } = useQuery(
+		'get sorted course lessons',
+		() => LessonsInCoursesService.getSortedCourse(String(query?.id)),
+		{
+			select: ({ data }) => data.response,
+			enabled: !!query.id,
+		}
+	)
+
+	const { mutateAsync } = useMutation(
+		'create completed lessons',
+		(data: ICompletedLessons) => CompletedLessonsService.create(data)
+	)
 
 	return useMemo(
 		() => ({
 			course,
-			lesson,
-			weeks,
-			days,
+			courseLessons,
+			courseSortedLessons,
+			mutateAsync,
+			completedLesson,
+			isLoading,
 		}),
-		[course, lesson, weeks, days]
+		[
+			course,
+			courseLessons,
+			courseSortedLessons,
+			mutateAsync,
+			completedLesson,
+			isLoading,
+		]
 	)
 }

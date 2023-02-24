@@ -17,7 +17,7 @@ export const login = createAsyncThunk<IAuthResponse, IAuthUser>(
 )
 
 export const registration = createAsyncThunk<IAuthResponse, IAuthUser>(
-	'auth/registration',
+	'auth/register',
 	async ({ email, password }, thunkAPI) => {
 		try {
 			const response = await AuthService.register(email, password)
@@ -27,6 +27,7 @@ export const registration = createAsyncThunk<IAuthResponse, IAuthUser>(
 		}
 	}
 )
+
 
 export const logout = createAsyncThunk('logout', async () => {
 	await AuthService.logout()
