@@ -31,13 +31,11 @@
 }
 .btn {
 	transition: all 0.5s ease;
-	@apply mb-3 mx-auto px-14 py-2.5 rounded-xl max-w-[300px] text-center border-blue border flex items-center justify-center;
+	@apply mb-3 mx-auto px-14 py-2.5 rounded-xl max-w-[300px] text-center border-blue border flex items-center justify-center mt-5;
 }
-.btn:hover {
-	@apply opacity-100;
-}
+
 .lesson {
-	@apply relative mb-5 block;
+	@apply relative block;
 	> img {
 		@apply w-full object-cover max-h-[300px];
 	}
@@ -49,6 +47,7 @@
 		@apply absolute bottom-8 right-5 text-2xl border-blue border px-5 py-1 rounded-lg sm15:px-1 sm:text-lg sm15:bottom-4 sm15:right-4;
 	}
 }
+
 
 .video {
 	position: fixed;
@@ -80,5 +79,5 @@
 	}
 }
 .text {
-	@apply text-center text-gray text-2xl;
+	@apply text-center text-gray text-2xl mt-5;
 }
