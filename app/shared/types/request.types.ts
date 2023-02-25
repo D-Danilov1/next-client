@@ -21,6 +21,7 @@ export interface ISortedLessonsInCourses {
 	lesson_id: number
 	course_id: number
 	day: IDays
+	lesson: ILessons
 }
 export interface ICourses {
 	id: number

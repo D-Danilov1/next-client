@@ -23,14 +23,14 @@ export const CompletedLessonsService = {
 		)
 	},
 
-	async findBySchedule(id: any) {
+	async findBySchedule(id: number) {
 		return axios.get<{ response: ICompletedLessons }>(
 			getCompletedLessonsUrl(`schedule/${id}`)
 		)
 	},
 
 	async findAllBySchedule() {
-		return axios.get<{ response: any }>(
+		return axios.get<{ response: number[] }>(
 			getCompletedLessonsUrl(`all-schedule`)
 		)
 	},

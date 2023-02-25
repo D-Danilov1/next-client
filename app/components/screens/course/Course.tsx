@@ -91,8 +91,9 @@ const Course = () => {
 			</div>
 			{courseSortedLessons &&
 				courseSortedLessons.length &&
-				courseSortedLessons[activeTabId][activeTabDayId].map((el: any, i: number) => {
+				courseSortedLessons[activeTabId][activeTabDayId].map((el: ISortedLessonsInCourses, i: number) => {
 					const { lesson } = el
+					console.log(el)
 					return (
 						<Fragment key={i}>
 							<div className={styles.lesson}>
@@ -121,9 +122,9 @@ const Course = () => {
 						</Fragment>
 					)
 				})}
-			{completedLessons.some((val: number) =>
+			{completedLessons?.some((val: number) =>
 				courseSortedLessons[activeTabId][activeTabDayId]
-					.map((val: any) => val.id)
+					.map((val: ISortedLessonsInCourses) => val.id)
 					.includes(val)
 			) ? (
 				<p className={styles.text}>День завершен</p>
