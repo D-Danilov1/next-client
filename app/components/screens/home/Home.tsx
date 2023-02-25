@@ -1,3 +1,4 @@
+import cn from 'clsx'
 import { getCourseUrl } from 'config/url.config'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,7 +9,10 @@ import Heading from '@/components/ui/heading/Heading'
 import Player from '@/components/ui/player/Player'
 import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
+import Preview from '@/assets/images/preview.jpg'
+
 import styles from './Home.module.scss'
+import Players from './Players'
 import { useHome } from './useHome'
 
 const Home = () => {
@@ -17,14 +21,14 @@ const Home = () => {
 	return (
 		<Layout>
 			<Heading title="Тренировки" />
-			<Player url="/uploads/default/start.mp4" />
+			<Players url="/uploads/default/start2.mp4" />
 			<SubHeading title="Выбери курс из разделов ниже и начни свою трансформацию" />
 			<Tabs>
 				<TabList className={styles.tablist}>
 					<Tab>Без подписки</Tab>
 				</TabList>
 				<TabPanel>
-					<Player url="/uploads/default/start.mp4" />
+					<Players url="/uploads/default/start.mp4" />
 					<p className={styles.text}>Выберите курс</p>
 					<div className={styles.cards}>
 						{courses &&

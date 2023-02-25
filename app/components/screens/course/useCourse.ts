@@ -29,9 +29,13 @@ export const useCourse = () => {
 		}
 	)
 
-	const { data: completedLesson, isLoading } = useQuery(
-		'get completed lesson',
-		(id) => CompletedLessonsService.findBySchedule(id),
+	const {
+		data: completedLessons,
+		isLoading,
+		refetch,
+	} = useQuery(
+		'get completed lessons',
+		() => CompletedLessonsService.findAllBySchedule(),
 		{
 			select: ({ data }) => data.response,
 		}
@@ -48,7 +52,10 @@ export const useCourse = () => {
 
 	const { mutateAsync } = useMutation(
 		'create completed lessons',
-		(data: ICompletedLessons) => CompletedLessonsService.create(data)
+		(data: ICompletedLessons) => CompletedLessonsService.create(data),
+		{
+			onSuccess: () => refetch(),
+		}
 	)
 
 	return useMemo(
@@ -57,7 +64,7 @@ export const useCourse = () => {
 			courseLessons,
 			courseSortedLessons,
 			mutateAsync,
-			completedLesson,
+			completedLessons,
 			isLoading,
 		}),
 		[
@@ -65,7 +72,7 @@ export const useCourse = () => {
 			courseLessons,
 			courseSortedLessons,
 			mutateAsync,
-			completedLesson,
+			completedLessons,
 			isLoading,
 		]
 	)

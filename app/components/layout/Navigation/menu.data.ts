@@ -7,25 +7,25 @@ export const navMenu: IMenu = {
 			icon: 'MdNextPlan',
 			link: '/',
 		},
-		{
-			title: 'Цели',
-			icon: 'MdListAlt',
-			link: '/goals',
-		},
-		{
-			title: 'Питание',
-			icon: 'MdFoodBank',
-			link: '/nutrition',
-		},
-		{
-			title: 'Разум',
-			icon: 'MdUpgrade',
-			link: '/mind',
-		},
-		{
-			title: 'Профиль',
-			icon: 'MdPerson',
-			link: '/profile',
-		},
+		// {
+		// 	title: 'Цели',
+		// 	icon: 'MdListAlt',
+		// 	link: '/goals',
+		// },
+		// {
+		// 	title: 'Питание',
+		// 	icon: 'MdFoodBank',
+		// 	link: '/nutrition',
+		// },
+		// {
+		// 	title: 'Разум',
+		// 	icon: 'MdUpgrade',
+		// 	link: '/mind',
+		// },
+		// {
+		// 	title: 'Профиль',
+		// 	icon: 'MdPerson',
+		// 	link: '/profile',
+		// },
 	],
 }

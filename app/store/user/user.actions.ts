@@ -28,7 +28,6 @@ export const registration = createAsyncThunk<IAuthResponse, IAuthUser>(
 	}
 )
 
-
 export const logout = createAsyncThunk('logout', async () => {
 	await AuthService.logout()
 })

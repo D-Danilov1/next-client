@@ -3,17 +3,21 @@
 	@apply flex items-center justify-start pl-5 gap-10 py-3 border-l-0 border-r-0;
 	> div {
 		border-bottom: 2px solid transparent;
+		@apply cursor-pointer;
 	}
 }
 .days {
-	@apply flex items-center justify-start px-5 pt-2 gap-5 mb-5 overflow-x-scroll;
+	@apply flex items-center justify-start px-5 pt-2 gap-5 mb-5 overflow-x-scroll pb-1.5;
 	.day {
-		@apply p-2 px-4 min-w-[120px] rounded-md border-gray border;
+		@apply p-2 px-4 min-w-[120px] rounded-md border-gray border cursor-pointer relative;
 		> span {
 			@apply text-gray mb-1 flex;
 		}
 		> p {
 			@apply text-white border-none;
+		}
+		> svg {
+			@apply absolute top-3 right-3;
 		}
 	}
 	.activeDay {
@@ -38,11 +42,11 @@
 		@apply w-full object-cover max-h-[300px];
 	}
 	> p {
-		@apply absolute bottom-8 left-8 text-6xl sm2:text-3xl sm2:left-4 sm2:bottom-4;
+		@apply absolute bottom-8 left-5 max-w-[70%] text-3xl sm15:text-2xl sm15:left-4 sm2:bottom-4;
 	}
 
 	> button {
-		@apply absolute bottom-8 right-8 text-2xl border-blue border px-5 py-1 rounded-lg sm2:px-2 sm:text-xl sm2:bottom-4 sm2:right-4;
+		@apply absolute bottom-8 right-5 text-2xl border-blue border px-5 py-1 rounded-lg sm15:px-1 sm:text-lg sm15:bottom-4 sm15:right-4;
 	}
 }
 
@@ -65,6 +69,7 @@
 	z-index: 2;
 	top: 15px;
 	left: 15px;
+	cursor: pointer;
 
 	color: #fff;
 	opacity: 0.5;
@@ -73,4 +78,7 @@
 		width: 30px;
 		height: 30px;
 	}
+}
+.text {
+	@apply text-center text-gray text-2xl;
 }

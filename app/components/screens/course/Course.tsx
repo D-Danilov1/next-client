@@ -15,18 +15,19 @@ import styles from './Course.module.scss'
 import { useCourse } from './useCourse'
 
 const Course = () => {
+	const [isVisiblePlayer, setVisiblePlayer] = useState(false)
+	const [activeTabId, setActiveTabId] = useState(0)
+	const [activeTabDayId, setActiveTabDayId] = useState(0)
+
 	const {
 		course,
 		courseLessons,
 		courseSortedLessons,
 		mutateAsync,
-		completedLesson,
+		completedLessons,
 	} = useCourse()
-	const [isVisiblePlayer, setVisiblePlayer] = useState(false)
-	const [activeTabId, setActiveTabId] = useState(0)
-	const [activeTabDayId, setActiveTabDayId] = useState(0)
-	const { user } = useAuth()
 
+	const { user } = useAuth()
 	useEffect(() => {
 		if (isVisiblePlayer) {
 			document.body.classList.add('lock')
@@ -58,7 +59,7 @@ const Course = () => {
 		<Layout>
 			<Heading title={course.name} />
 			<div className={styles.tablist}>
-				{courseSortedLessons.map((week: ISortedLessonsInCourses, i: number) => {
+				{courseSortedLessons.map((_: ISortedLessonsInCourses, i: number) => {
 					return (
 						<div
 							key={i}
@@ -88,32 +89,49 @@ const Course = () => {
 					}
 				)}
 			</div>
-			{courseSortedLessons[activeTabId][activeTabDayId].map((el: any) => {
-				const { lesson } = el
-				return (
-					<Fragment key={lesson.id}>
-						<div className={styles.lesson}>
-							<Image src={lesson.image} width={200} height={100} alt="lesson" />
-							<p>{lesson.name}</p>
-							<button onClick={() => setVisiblePlayer(true)}>Смотреть</button>
-						</div>
-						{isVisiblePlayer && (
-							<div className={styles.video}>
-								<div
-									className={styles.close}
-									onClick={() => setVisiblePlayer(false)}
-								>
-									<MaterialIcon name="MdClose" />
-								</div>
-								<Player url={lesson.url} />
+			{courseSortedLessons &&
+				courseSortedLessons.length &&
+				courseSortedLessons[activeTabId][activeTabDayId].map((el: any, i: number) => {
+					const { lesson } = el
+					return (
+						<Fragment key={i}>
+							<div className={styles.lesson}>
+								<Image
+									src={lesson.image}
+									width={200}
+									height={100}
+									priority
+									alt="lesson"
+									draggable={false}
+								/>
+								<p>{lesson.name}</p>
+								<button onClick={() => setVisiblePlayer(true)}>Смотреть</button>
 							</div>
-						)}
-					</Fragment>
-				)
-			})}
-			<button className={styles.btn} onClick={handleComplete}>
-				Завершить день
-			</button>
+							{isVisiblePlayer && (
+								<div className={styles.video}>
+									<div
+										className={styles.close}
+										onClick={() => setVisiblePlayer(false)}
+									>
+										<MaterialIcon name="MdClose" />
+									</div>
+									<Player url={lesson.link} />
+								</div>
+							)}
+						</Fragment>
+					)
+				})}
+			{completedLessons.some((val: number) =>
+				courseSortedLessons[activeTabId][activeTabDayId]
+					.map((val: any) => val.id)
+					.includes(val)
+			) ? (
+				<p className={styles.text}>День завершен</p>
+			) : (
+				<button className={styles.btn} onClick={handleComplete}>
+					Завершить день
+				</button>
+			)}
 		</Layout>
 	)
 }

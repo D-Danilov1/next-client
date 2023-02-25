@@ -7,8 +7,29 @@ interface IPlayer {
 }
 
 const Player: FC<IPlayer> = ({ url }) => {
+	console.log(url)
+	const previewThumbnailsConfig = {
+		src: url,
+		interval: 10,
+		thumbWidth: 192,
+		thumbHeight: 108,
+	}
+
 	return (
 		<Plyr
+			options={{
+				previewThumbnails: previewThumbnailsConfig,
+				controls: [
+					'play-large',
+					'play',
+					'progress',
+					'duration',
+					'mute',
+					'volume',
+					'captions',
+					'fullscreen',
+				],
+			}}
 			source={{
 				type: 'video',
 				sources: [
@@ -18,6 +39,8 @@ const Player: FC<IPlayer> = ({ url }) => {
 						size: 1080,
 					},
 				],
+				// @ts-ignore
+				autoplay: true,
 			}}
 		/>
 	)
