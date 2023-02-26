@@ -2,21 +2,10 @@
 	"root": true,
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
-		"ecmaVersion": 2020,
+		"ecmaVersion": 2022,
 		"sourceType": "module",
 		"ecmaFeatures": {
 			"jsx": true
-		}
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		},
-		"import/resolver": {
-			"node": {
-				"paths": ["src"],
-				"extensions": [".js", ".jsx", ".ts", ".tsx"]
-			}
 		}
 	},
 	"env": {
@@ -24,6 +13,22 @@
 		"amd": true,
 		"node": true
 	},
-	"extends": ["eslint:recommended"],
-	"rules": {}
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended"
+	],
+	"plugins": ["react", "react-hooks"],
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"no-console": "warn",
+		"no-restricted-syntax": [
+			"error",
+			{
+				"selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+				"message": "Unexpected property on console object was called"
+			}
+		],
+		"no-undef": ["error", { "typeof": true }]
+	}
 }
