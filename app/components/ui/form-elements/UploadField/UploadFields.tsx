@@ -1,4 +1,5 @@
 import { FC, useRef } from 'react'
+
 import MaterialIcon from '../../MaterialIcon'
 
 import styles from './UploadFields.module.scss'
@@ -22,14 +23,14 @@ const UploadField: FC<IUploadField> = ({
 	return (
 		<div className={styles.field}>
 			<input
-				ref={inputRef} 
+				ref={inputRef}
 				type="file"
 				onChange={uploadFile}
 				accept={accept}
 				max-size="1000000000"
 				multiple={isMulti}
 			/>
-			<MaterialIcon name='MdAdd' />
+			<MaterialIcon name="MdAdd" />
 		</div>
 	)
 }

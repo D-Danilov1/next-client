@@ -13,9 +13,7 @@ export const DaysService = {
 	},
 
 	async findByName(name: string) {
-		return axios.get<{ response: IDays }>(
-			getDaysUrl(`name/${name}`)
-		)
+		return axios.get<{ response: IDays }>(getDaysUrl(`name/${name}`))
 	},
 
 	async delete(id: string) {

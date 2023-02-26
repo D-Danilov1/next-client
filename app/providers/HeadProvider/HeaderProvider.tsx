@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import NextProgressBar from 'nextjs-progressbar'
 import React, { FC } from 'react'
+
 import Favicons from './FavIcons'
 
 interface IHeadProvider {

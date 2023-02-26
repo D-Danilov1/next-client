@@ -12,7 +12,7 @@ export const AuthService = {
 			email,
 			password,
 		})
-		
+
 		if (data.response.accessToken) {
 			saveToStorage(data.response)
 		}

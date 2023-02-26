@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
+
 import styles from './Menu.module.scss'
 import { navMenu } from './menu.data'
 

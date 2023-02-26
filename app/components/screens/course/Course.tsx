@@ -91,36 +91,40 @@ const Course = () => {
 			</div>
 			{courseSortedLessons &&
 				courseSortedLessons.length &&
-				courseSortedLessons[activeTabId][activeTabDayId].map((el: ISortedLessonsInCourses, i: number) => {
-					const { lesson } = el
-					return (
-						<Fragment key={i}>
-							<div className={styles.lesson}>
-								<Image
-									src={lesson.image}
-									width={200}
-									height={100}
-									priority
-									alt="lesson"
-									draggable={false}
-								/>
-								<p>{lesson.name}</p>
-								<button onClick={() => setVisiblePlayer(true)}>Смотреть</button>
-							</div>
-							{isVisiblePlayer && (
-								<div className={styles.video}>
-									<div
-										className={styles.close}
-										onClick={() => setVisiblePlayer(false)}
-									>
-										<MaterialIcon name="MdClose" />
-									</div>
-									<Player url={lesson.link} />
+				courseSortedLessons[activeTabId][activeTabDayId].map(
+					(el: ISortedLessonsInCourses, i: number) => {
+						const { lesson } = el
+						return (
+							<Fragment key={i}>
+								<div className={styles.lesson}>
+									<Image
+										src={lesson.image}
+										width={200}
+										height={100}
+										priority
+										alt="lesson"
+										draggable={false}
+									/>
+									<p>{lesson.name}</p>
+									<button onClick={() => setVisiblePlayer(true)}>
+										Смотреть
+									</button>
 								</div>
-							)}
-						</Fragment>
-					)
-				})}
+								{isVisiblePlayer && (
+									<div className={styles.video}>
+										<div
+											className={styles.close}
+											onClick={() => setVisiblePlayer(false)}
+										>
+											<MaterialIcon name="MdClose" />
+										</div>
+										<Player url={lesson.link} />
+									</div>
+								)}
+							</Fragment>
+						)
+					}
+				)}
 			{completedLessons?.some((val: number) =>
 				courseSortedLessons[activeTabId][activeTabDayId]
 					.map((val: ISortedLessonsInCourses) => val.id)

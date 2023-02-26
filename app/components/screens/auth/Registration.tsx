@@ -1,18 +1,13 @@
-import Link from 'next/link';
-import { FC } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import Link from 'next/link'
+import { FC } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { useActions } from '@/hooks/useActions'
+import { useAuthRedirect } from '@/hooks/useAuthRedirect'
 
-
-import { useActions } from '@/hooks/useActions';
-import { useAuthRedirect } from '@/hooks/useAuthRedirect';
-
-
-
-import AuthFields from './AuthFields';
-import styles from './Login.module.scss';
-import { IAuthInput } from './auth.interface';
-
+import AuthFields from './AuthFields'
+import styles from './Login.module.scss'
+import { IAuthInput } from './auth.interface'
 
 const Registration: FC = () => {
 	useAuthRedirect()

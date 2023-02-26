@@ -15,7 +15,7 @@ const Goals = () => {
 					<p>Новый список</p>
 					<MaterialIcon name="MdAdd" />
 				</div>
-				<Link href='/goal/1'>
+				<Link href="/goal/1">
 					<div className={styles.card}>
 						<p>1</p>
 					</div>
