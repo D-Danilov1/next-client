@@ -1,39 +1,39 @@
 .tablist {
-	border: 1px solid #212123;
-	@apply flex items-center justify-center gap-20 py-3 border-l-0 border-r-0;
+  border: 1px solid #212123;
+  @apply flex items-center justify-center gap-20 py-3 border-l-0 border-r-0;
 }
 .text {
-	@apply my-4 text-xl pl-5;
+  @apply my-4 text-xl pl-5;
 }
 .video {
-	@apply relative;
-	.active {
-		@apply hidden;
-	}
-	> img {
-		@apply absolute top-0 left-0 w-full h-full object-cover;
-	}
+  @apply relative;
+  .active {
+    @apply hidden;
+  }
+  > img {
+    @apply absolute top-0 left-0 w-full h-full object-cover;
+  }
 }
 .cards {
-	@apply flex items-center gap-5 justify-between flex-wrap px-5;
-	.card {
-		@apply relative rounded-2xl cursor-pointer w-full;
-		> a {
-			> img {
-				@apply h-full w-full max-h-[250px] object-cover rounded-2xl;
-			}
-			.content {
-				@apply absolute bottom-5 left-5 text-xl sm3:text-lg text-white select-none;
-				> p {
-					@apply sm:text-sm;
-				}
-				> span {
-					@apply text-base max-w-[63%] block sm15:hidden;
-				}
-			}
-			.btn {
-				@apply absolute bottom-4 right-5 text-white select-none p-2 border-blue border rounded-xl sm:text-base sm:p-1 sm:px-3 sm2:px-1 sm2:text-xs;
-			}
-		}
-	}
+  @apply flex items-center gap-5 justify-between flex-wrap px-5;
+  .card {
+    @apply relative rounded-2xl cursor-pointer w-full;
+    > a {
+      > img {
+        @apply h-full w-full max-h-[250px] object-cover rounded-2xl;
+      }
+      .content {
+        @apply absolute bottom-5 left-5 text-xl sm3:text-lg text-white select-none;
+        > p {
+          @apply sm:text-sm;
+        }
+        > span {
+          @apply text-base max-w-[63%] block sm15:hidden;
+        }
+      }
+      .btn {
+        @apply absolute bottom-4 right-5 text-white select-none p-2 border-blue border rounded-xl sm:text-base sm:p-1 sm:px-3 sm2:px-1 sm2:text-xs;
+      }
+    }
+  }
 }

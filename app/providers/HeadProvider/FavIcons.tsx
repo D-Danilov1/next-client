@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 const Favicons: FC = () => {
-	return (
-		<>
-			{/* <link
+  return (
+    <>
+      {/* <link
 				rel="apple-touch-icon"
 				sizes="180x180"
 				href="/apple-touch-icon.png"
@@ -22,8 +22,8 @@ const Favicons: FC = () => {
 			/>
 			<link rel="manifest" href="/site.webmanifest" />
 			<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1090b8" /> */}
-		</>
-	)
-}
+    </>
+  );
+};
 
-export default Favicons
+export default Favicons;

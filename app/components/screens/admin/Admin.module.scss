@@ -1,14 +1,14 @@
 .wrapper {
-	@apply flex flex-col px-4;
-	.block {
-		@apply flex items-center justify-between;
-		> p {
-			@apply text-white;
-		}
-		> button {
-			@apply border-blue border rounded-lg px-4 py-2;
-		}
-	}
+  @apply flex flex-col px-4;
+  .block {
+    @apply flex items-center justify-between;
+    > p {
+      @apply text-white;
+    }
+    > button {
+      @apply border-blue border rounded-lg px-4 py-2;
+    }
+  }
 }
 .modal {
 }

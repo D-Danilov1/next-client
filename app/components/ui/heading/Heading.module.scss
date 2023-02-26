@@ -1,6 +1,6 @@
 .title {
-	@apply text-4xl text-center mb-5 flex justify-center gap-2 items-center;
-	> svg {
-		@apply opacity-80;
-	}
+  @apply text-4xl text-center mb-5 flex justify-center gap-2 items-center;
+  > svg {
+    @apply opacity-80;
+  }
 }

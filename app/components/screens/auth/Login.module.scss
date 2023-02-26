@@ -1,28 +1,28 @@
 .auth {
-	transform: translate(-50%, -70%);
-	@apply flex flex-col items-center p-10 max-w-fit mx-auto fixed top-1/2 left-1/2 sm:p-0;
-	> div:first-child {
-		@apply mb-7;
-	}
-	> h1 {
-		@apply text-3xl font-semibold mb-5  text-center;
-	}
+  transform: translate(-50%, -70%);
+  @apply flex flex-col items-center p-10 max-w-fit mx-auto fixed top-1/2 left-1/2 sm:p-0;
+  > div:first-child {
+    @apply mb-7;
+  }
+  > h1 {
+    @apply text-3xl font-semibold mb-5  text-center;
+  }
 
-	.authForm {
-		@apply flex flex-col min-w-[380px];
-		> button {
-			transition: all 0.5s ease;
-			@apply mb-3 mx-auto px-10 py-2 rounded-xl w-full border-blue border;
-		}
-		> button:hover {
-			@apply opacity-100;
-		}
-		> a {
-			transition: all 0.5s ease;
-			@apply text-sm text-right mb-4 opacity-60 pr-2;
-			> a:hover {
-				@apply opacity-100;
-			}
-		}
-	}
+  .authForm {
+    @apply flex flex-col min-w-[380px];
+    > button {
+      transition: all 0.5s ease;
+      @apply mb-3 mx-auto px-10 py-2 rounded-xl w-full border-blue border;
+    }
+    > button:hover {
+      @apply opacity-100;
+    }
+    > a {
+      transition: all 0.5s ease;
+      @apply text-sm text-right mb-4 opacity-60 pr-2;
+      > a:hover {
+        @apply opacity-100;
+      }
+    }
+  }
 }

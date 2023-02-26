@@ -1,9 +1,9 @@
 .wrapper {
-	@apply max-w-[350px] mx-auto;
-	.card {
-		@apply flex items-center justify-between bg-[#242328] py-4 px-5 cursor-pointer rounded-lg mb-4;
-		> svg {
-			@apply w-6 h-6;
-		}
-	}
+  @apply max-w-[350px] mx-auto;
+  .card {
+    @apply flex items-center justify-between bg-[#242328] py-4 px-5 cursor-pointer rounded-lg mb-4;
+    > svg {
+      @apply w-6 h-6;
+    }
+  }
 }

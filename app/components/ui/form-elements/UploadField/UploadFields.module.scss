@@ -1,14 +1,14 @@
 .field {
-	border: 1px dashed rgba(100, 100, 102, 0.8);
-	@apply h-[200px] relative;
-	> input {
-		@apply absolute top-0 left-0 w-full h-full opacity-0;
-	}
-	> svg {
-		@apply h-5 w-5 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2;
-	}
+  border: 1px dashed rgba(100, 100, 102, 0.8);
+  @apply h-[200px] relative;
+  > input {
+    @apply absolute top-0 left-0 w-full h-full opacity-0;
+  }
+  > svg {
+    @apply h-5 w-5 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2;
+  }
 
-	> p {
-		@apply text-center text-sm -translate-y-3;
-	}
+  > p {
+    @apply text-center text-sm -translate-y-3;
+  }
 }

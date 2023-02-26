@@ -1,24 +1,24 @@
 .field {
-	@apply mb-4;
-	> label {
-		@apply relative;
-		> span {
-			transform: translateY(-50%);
-			@apply absolute top-1/2 right-3 cursor-pointer;
-		}
-		> input {
-			border-bottom: 1px solid;
-			@apply w-full outline-none px-3 py-2.5  opacity-80  border-gray bg-transparent;
-		}
-		> input::placeholder {
-			@apply sm:text-sm;
-		}
-	}
-	.error {
-		color: red;
-		@apply opacity-80 text-right text-sm;
-	}
-	.fieldError {
-		border: 1px solid red;
-	}
+  @apply mb-4;
+  > label {
+    @apply relative;
+    > span {
+      transform: translateY(-50%);
+      @apply absolute top-1/2 right-3 cursor-pointer;
+    }
+    > input {
+      border-bottom: 1px solid;
+      @apply w-full outline-none px-3 py-2.5  opacity-80  border-gray bg-transparent;
+    }
+    > input::placeholder {
+      @apply sm:text-sm;
+    }
+  }
+  .error {
+    color: red;
+    @apply opacity-80 text-right text-sm;
+  }
+  .fieldError {
+    border: 1px solid red;
+  }
 }
