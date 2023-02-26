@@ -93,7 +93,6 @@ const Course = () => {
 				courseSortedLessons.length &&
 				courseSortedLessons[activeTabId][activeTabDayId].map((el: ISortedLessonsInCourses, i: number) => {
 					const { lesson } = el
-					console.log(el)
 					return (
 						<Fragment key={i}>
 							<div className={styles.lesson}>

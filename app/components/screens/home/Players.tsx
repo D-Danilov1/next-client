@@ -16,7 +16,7 @@ const Players: FC<IPlayers> = ({ url }) => {
 	const [showPreview, setShowPreview] = useState(false)
 	return (
 		<div className={styles.video}>
-			<Player url={url} />
+			<Player url={url} autoPlay={showPreview} />
 			<Image
 				className={cn({ [styles.active]: showPreview })}
 				src={Preview}

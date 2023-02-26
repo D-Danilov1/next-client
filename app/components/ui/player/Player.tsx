@@ -4,10 +4,10 @@ import { FC } from 'react'
 
 interface IPlayer {
 	url: string
+	autoPlay?: boolean
 }
 
-const Player: FC<IPlayer> = ({ url }) => {
-	console.log(url)
+const Player: FC<IPlayer> = ({ url, autoPlay = false }) => {
 	const previewThumbnailsConfig = {
 		src: url,
 		interval: 10,
@@ -40,7 +40,7 @@ const Player: FC<IPlayer> = ({ url }) => {
 					},
 				],
 				// @ts-ignore
-				autoplay: true,
+				autoplay: autoPlay,
 			}}
 		/>
 	)
