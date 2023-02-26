@@ -1,19 +1,19 @@
-import cn from 'clsx';
-import Image from 'next/image';
-import { FC, useState } from 'react';
+import cn from 'clsx'
+import Image from 'next/image'
+import { FC, useState } from 'react'
 
-import Player from '@/components/ui/player/Player';
+import Player from '@/components/ui/player/Player'
 
-import Preview from '@/assets/images/preview.jpg';
+import Preview from '@/assets/images/preview.jpg'
 
-import styles from './Home.module.scss';
+import styles from './Home.module.scss'
 
 interface IPlayers {
-  url: string;
+  url: string
 }
 
 const Players: FC<IPlayers> = ({ url }) => {
-  const [showPreview, setShowPreview] = useState(false);
+  const [showPreview, setShowPreview] = useState(false)
   return (
     <div className={styles.video}>
       <Player url={url} autoPlay={showPreview} />
@@ -26,6 +26,6 @@ const Players: FC<IPlayers> = ({ url }) => {
         onClick={() => setShowPreview(true)}
       />
     </div>
-  );
-};
-export default Players;
+  )
+}
+export default Players

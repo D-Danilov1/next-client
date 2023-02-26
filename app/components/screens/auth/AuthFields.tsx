@@ -1,15 +1,15 @@
-import { FC } from 'react';
-import { FieldValues, FormState, UseFormRegister } from 'react-hook-form';
+import { FC } from 'react'
+import { FieldValues, FormState, UseFormRegister } from 'react-hook-form'
 
-import Field from '@/components/ui/form-elements/Field';
+import Field from '@/components/ui/form-elements/Field'
 
-import { validEmail } from '@/shared/regex';
+import { validEmail } from '@/shared/regex'
 
-import { IAuthInput } from './auth.interface';
+import { IAuthInput } from './auth.interface'
 
 interface IAuthFields {
-  register: UseFormRegister<IAuthInput>;
-  formState: FormState<FieldValues>;
+  register: UseFormRegister<IAuthInput>
+  formState: FormState<FieldValues>
 }
 
 const AuthFields: FC<IAuthFields> = ({ register, formState: { errors } }) => {
@@ -39,7 +39,7 @@ const AuthFields: FC<IAuthFields> = ({ register, formState: { errors } }) => {
         error={errors.password}
       />
     </>
-  );
-};
+  )
+}
 
-export default AuthFields;
+export default AuthFields

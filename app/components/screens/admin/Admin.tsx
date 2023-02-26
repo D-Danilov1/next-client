@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-import Layout from '@/components/layout/Layout';
-import Heading from '@/components/ui/heading/Heading';
-import SubHeading from '@/components/ui/sub-heading/SubHeading';
+import Layout from '@/components/layout/Layout'
+import Heading from '@/components/ui/heading/Heading'
+import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
-import styles from './Admin.module.scss';
-import Modal from './Modal';
+import styles from './Admin.module.scss'
+import Modal from './Modal'
 
 const Admin = () => {
   // const {
@@ -17,7 +17,7 @@ const Admin = () => {
   // 	mode: 'onSubmit',
   // })
 
-  const [modalIsOpen, modalSetOpen] = useState(false);
+  const [modalIsOpen, modalSetOpen] = useState(false)
 
   return (
     <Layout>
@@ -34,6 +34,6 @@ const Admin = () => {
       </div>
       <Modal modalIsOpen={modalIsOpen} modalSetOpen={modalSetOpen} />
     </Layout>
-  );
-};
-export default Admin;
+  )
+}
+export default Admin

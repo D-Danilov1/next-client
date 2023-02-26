@@ -1,12 +1,12 @@
-import { FC } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Provider } from 'react-redux';
-import { store } from 'store/store';
+import { FC } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { Provider } from 'react-redux'
+import { store } from 'store/store'
 
-import { TypeComponentAuthFields } from '@/shared/types/auth.types';
+import { TypeComponentAuthFields } from '@/shared/types/auth.types'
 
-import AuthProvider from './AuthProvider/AuthProvider';
-import HeaderProvider from './HeadProvider/HeaderProvider';
+import AuthProvider from './AuthProvider/AuthProvider'
+import HeaderProvider from './HeadProvider/HeaderProvider'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,7 +14,7 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
     },
   },
-});
+})
 
 const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
   return (
@@ -25,7 +25,7 @@ const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
         </QueryClientProvider>
       </Provider>
     </HeaderProvider>
-  );
-};
+  )
+}
 
-export default MainProvider;
+export default MainProvider

@@ -1,4 +1,4 @@
-import axios from 'api/interceptors';
+import axios from 'api/interceptors'
 
 export const FileService = {
   async upload(file: FormData, folder?: string) {
@@ -9,6 +9,6 @@ export const FileService = {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
-    });
+    })
   },
-};
+}

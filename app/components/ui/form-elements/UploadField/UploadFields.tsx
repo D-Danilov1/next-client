@@ -1,20 +1,20 @@
-import { FC, useRef } from 'react';
+import { FC, useRef } from 'react'
 
-import MaterialIcon from '../../MaterialIcon';
+import MaterialIcon from '../../MaterialIcon'
 
-import styles from './UploadFields.module.scss';
-import { useUpload } from './useUpload';
+import styles from './UploadFields.module.scss'
+import { useUpload } from './useUpload'
 
 interface IUploadField {
-  folder?: string;
-  onChange: () => void;
-  isMulti?: boolean;
-  accept?: string;
+  folder?: string
+  onChange: () => void
+  isMulti?: boolean
+  accept?: string
 }
 
 const UploadField: FC<IUploadField> = ({ onChange, folder, isMulti = false, accept = '.pdf' }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const { uploadFile } = useUpload(onChange, folder, inputRef);
+  const inputRef = useRef<HTMLInputElement>(null)
+  const { uploadFile } = useUpload(onChange, folder, inputRef)
   return (
     <div className={styles.field}>
       <input
@@ -27,6 +27,6 @@ const UploadField: FC<IUploadField> = ({ onChange, folder, isMulti = false, acce
       />
       <MaterialIcon name="MdAdd" />
     </div>
-  );
-};
-export default UploadField;
+  )
+}
+export default UploadField

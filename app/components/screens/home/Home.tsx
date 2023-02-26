@@ -1,22 +1,22 @@
-import cn from 'clsx';
-import { getCourseUrl } from 'config/url.config';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import cn from 'clsx'
+import { getCourseUrl } from 'config/url.config'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 
-import Layout from '@/components/layout/Layout';
-import Heading from '@/components/ui/heading/Heading';
-import Player from '@/components/ui/player/Player';
-import SubHeading from '@/components/ui/sub-heading/SubHeading';
+import Layout from '@/components/layout/Layout'
+import Heading from '@/components/ui/heading/Heading'
+import Player from '@/components/ui/player/Player'
+import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
-import Preview from '@/assets/images/preview.jpg';
+import Preview from '@/assets/images/preview.jpg'
 
-import styles from './Home.module.scss';
-import Players from './Players';
-import { useHome } from './useHome';
+import styles from './Home.module.scss'
+import Players from './Players'
+import { useHome } from './useHome'
 
 const Home = () => {
-  const { courses } = useHome();
+  const { courses } = useHome()
 
   return (
     <Layout>
@@ -57,6 +57,6 @@ const Home = () => {
         </TabPanel>
       </Tabs>
     </Layout>
-  );
-};
-export default Home;
+  )
+}
+export default Home

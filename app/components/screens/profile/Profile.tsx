@@ -1,14 +1,14 @@
-import Layout from '@/components/layout/Layout';
-import MaterialIcon from '@/components/ui/MaterialIcon';
-import UploadField from '@/components/ui/form-elements/UploadField/UploadFields';
-import Heading from '@/components/ui/heading/Heading';
+import Layout from '@/components/layout/Layout'
+import MaterialIcon from '@/components/ui/MaterialIcon'
+import UploadField from '@/components/ui/form-elements/UploadField/UploadFields'
+import Heading from '@/components/ui/heading/Heading'
 
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/useAuth'
 
-import styles from './Profile.module.scss';
+import styles from './Profile.module.scss'
 
 const Profile = () => {
-  const { user } = useAuth();
+  const { user } = useAuth()
   return (
     <Layout>
       <Heading title="Профиль">
@@ -28,6 +28,6 @@ const Profile = () => {
         </div>
       </div>
     </Layout>
-  );
-};
-export default Profile;
+  )
+}
+export default Profile

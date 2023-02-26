@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
-import styles from './Heading.module.scss';
+import styles from './Heading.module.scss'
 
 interface IHeading {
-  title: string;
-  children?: React.ReactNode;
+  title: string
+  children?: React.ReactNode
 }
 
 const Heading: FC<IHeading> = ({ title, children }) => {
@@ -12,6 +12,6 @@ const Heading: FC<IHeading> = ({ title, children }) => {
     <p className={styles.title}>
       {title} {children}
     </p>
-  );
-};
-export default Heading;
+  )
+}
+export default Heading

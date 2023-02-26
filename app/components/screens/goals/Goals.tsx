@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import Layout from '@/components/layout/Layout';
-import MaterialIcon from '@/components/ui/MaterialIcon';
-import Heading from '@/components/ui/heading/Heading';
+import Layout from '@/components/layout/Layout'
+import MaterialIcon from '@/components/ui/MaterialIcon'
+import Heading from '@/components/ui/heading/Heading'
 
-import styles from './Goals.module.scss';
+import styles from './Goals.module.scss'
 
 const Goals = () => {
   return (
@@ -22,6 +22,6 @@ const Goals = () => {
         </Link>
       </div>
     </Layout>
-  );
-};
-export default Goals;
+  )
+}
+export default Goals

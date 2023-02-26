@@ -1,13 +1,13 @@
-import cn from 'clsx';
-import { forwardRef, useState } from 'react';
-import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
+import cn from 'clsx'
+import { forwardRef, useState } from 'react'
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
 
-import { IField } from './form.interface';
-import styles from './form.module.scss';
+import { IField } from './form.interface'
+import styles from './form.module.scss'
 
 const Field = forwardRef<HTMLInputElement, IField>(
   ({ text, placeholder, error, type = 'text', style, ...rest }, ref) => {
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(false)
 
     return (
       <div className={styles.field} style={style}>
@@ -28,8 +28,8 @@ const Field = forwardRef<HTMLInputElement, IField>(
         </label>
         {error && <div className={styles.error}>{error.message}</div>}
       </div>
-    );
+    )
   },
-);
+)
 
-export default Field;
+export default Field

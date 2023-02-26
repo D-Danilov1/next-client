@@ -1,10 +1,10 @@
-import Plyr from 'plyr-react';
-import 'plyr-react/plyr.css';
-import { FC } from 'react';
+import Plyr from 'plyr-react'
+import 'plyr-react/plyr.css'
+import { FC } from 'react'
 
 interface IPlayer {
-  url: string;
-  autoPlay?: boolean;
+  url: string
+  autoPlay?: boolean
 }
 
 const Player: FC<IPlayer> = ({ url, autoPlay = false }) => {
@@ -13,7 +13,7 @@ const Player: FC<IPlayer> = ({ url, autoPlay = false }) => {
     interval: 10,
     thumbWidth: 192,
     thumbHeight: 108,
-  };
+  }
 
   return (
     <Plyr
@@ -43,6 +43,6 @@ const Player: FC<IPlayer> = ({ url, autoPlay = false }) => {
         autoplay: autoPlay,
       }}
     />
-  );
-};
-export default Player;
+  )
+}
+export default Player

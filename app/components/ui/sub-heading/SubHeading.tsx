@@ -1,12 +1,12 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
-import styles from './SubHeading.module.scss';
+import styles from './SubHeading.module.scss'
 
 interface ISubHeading {
-  title: string;
+  title: string
 }
 
 const SubHeading: FC<ISubHeading> = ({ title }) => {
-  return <p className={styles.title}>{title}</p>;
-};
-export default SubHeading;
+  return <p className={styles.title}>{title}</p>
+}
+export default SubHeading

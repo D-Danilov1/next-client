@@ -1,15 +1,15 @@
-import { useRouter } from 'next/router';
-import { useMemo } from 'react';
-import { useMutation, useQuery } from 'react-query';
+import { useRouter } from 'next/router'
+import { useMemo } from 'react'
+import { useMutation, useQuery } from 'react-query'
 
-import { ICompletedLessons } from '@/shared/types/request.types';
+import { ICompletedLessons } from '@/shared/types/request.types'
 
-import { CompletedLessonsService } from '@/services/completedLessons.service';
-import { CoursesService } from '@/services/courses.service';
-import { LessonsInCoursesService } from '@/services/lessonsInCourses.service';
+import { CompletedLessonsService } from '@/services/completedLessons.service'
+import { CoursesService } from '@/services/courses.service'
+import { LessonsInCoursesService } from '@/services/lessonsInCourses.service'
 
 export const useCourse = () => {
-  const { query } = useRouter();
+  const { query } = useRouter()
 
   const { data: course } = useQuery(
     'get courses',
@@ -18,7 +18,7 @@ export const useCourse = () => {
       select: ({ data }) => data.response,
       enabled: !!query.id,
     },
-  );
+  )
 
   const { data: courseLessons } = useQuery(
     'get course lessons',
@@ -27,7 +27,7 @@ export const useCourse = () => {
       select: ({ data }) => data.response,
       enabled: !!query.id,
     },
-  );
+  )
 
   const {
     data: completedLessons,
@@ -35,7 +35,7 @@ export const useCourse = () => {
     refetch,
   } = useQuery('get completed lessons', () => CompletedLessonsService.findAllBySchedule(), {
     select: ({ data }) => data.response,
-  });
+  })
 
   const { data: courseSortedLessons } = useQuery(
     'get sorted course lessons',
@@ -44,7 +44,7 @@ export const useCourse = () => {
       select: ({ data }) => data.response,
       enabled: !!query.id,
     },
-  );
+  )
 
   const { mutateAsync } = useMutation(
     'create completed lessons',
@@ -52,7 +52,7 @@ export const useCourse = () => {
     {
       onSuccess: () => refetch(),
     },
-  );
+  )
 
   return useMemo(
     () => ({
@@ -64,5 +64,5 @@ export const useCourse = () => {
       isLoading,
     }),
     [course, courseLessons, courseSortedLessons, mutateAsync, completedLessons, isLoading],
-  );
-};
+  )
+}

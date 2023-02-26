@@ -1,4 +1,4 @@
-import { IMenu } from './menu.interface';
+import { IMenu } from './menu.interface'
 
 export const navMenu: IMenu = {
   items: [
@@ -28,4 +28,4 @@ export const navMenu: IMenu = {
     // 	link: '/profile',
     // },
   ],
-};
+}

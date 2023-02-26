@@ -1,36 +1,36 @@
-import cn from 'clsx';
-import Image from 'next/image';
-import { Fragment, useEffect, useState } from 'react';
+import cn from 'clsx'
+import Image from 'next/image'
+import { Fragment, useEffect, useState } from 'react'
 
-import Layout from '@/components/layout/Layout';
-import MaterialIcon from '@/components/ui/MaterialIcon';
-import Heading from '@/components/ui/heading/Heading';
-import Player from '@/components/ui/player/Player';
+import Layout from '@/components/layout/Layout'
+import MaterialIcon from '@/components/ui/MaterialIcon'
+import Heading from '@/components/ui/heading/Heading'
+import Player from '@/components/ui/player/Player'
 
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/useAuth'
 
-import { ISortedLessonsInCourses } from '@/shared/types/request.types';
+import { ISortedLessonsInCourses } from '@/shared/types/request.types'
 
-import styles from './Course.module.scss';
-import { useCourse } from './useCourse';
+import styles from './Course.module.scss'
+import { useCourse } from './useCourse'
 
 const Course = () => {
-  const [isVisiblePlayer, setVisiblePlayer] = useState(false);
-  const [activeTabId, setActiveTabId] = useState(0);
-  const [activeTabDayId, setActiveTabDayId] = useState(0);
+  const [isVisiblePlayer, setVisiblePlayer] = useState(false)
+  const [activeTabId, setActiveTabId] = useState(0)
+  const [activeTabDayId, setActiveTabDayId] = useState(0)
 
-  const { course, courseLessons, courseSortedLessons, mutateAsync, completedLessons } = useCourse();
+  const { course, courseLessons, courseSortedLessons, mutateAsync, completedLessons } = useCourse()
 
-  const { user } = useAuth();
+  const { user } = useAuth()
   useEffect(() => {
     if (isVisiblePlayer) {
-      document.body.classList.add('lock');
+      document.body.classList.add('lock')
     } else {
-      document.body.classList.remove('lock');
+      document.body.classList.remove('lock')
     }
-  }, [isVisiblePlayer]);
+  }, [isVisiblePlayer])
 
-  if (!course || !courseLessons || !courseSortedLessons || !courseLessons.length) return null;
+  if (!course || !courseLessons || !courseSortedLessons || !courseLessons.length) return null
 
   const handleComplete = async () => {
     if (user) {
@@ -38,10 +38,10 @@ const Course = () => {
         await mutateAsync({
           lesson_schedule_id: key.id,
           user_id: user.id,
-        });
+        })
       }
     }
-  };
+  }
 
   return (
     <Layout>
@@ -56,7 +56,7 @@ const Course = () => {
             >
               Неделя {i + 1}
             </div>
-          );
+          )
         })}
       </div>
       <div className={styles.days}>
@@ -72,14 +72,14 @@ const Course = () => {
               <span>День {i + 1}</span>
               <p>{el[0].day.name}</p>
             </div>
-          );
+          )
         })}
       </div>
       {courseSortedLessons &&
         courseSortedLessons.length &&
         courseSortedLessons[activeTabId][activeTabDayId].map(
           (el: ISortedLessonsInCourses, i: number) => {
-            const { lesson } = el;
+            const { lesson } = el
             return (
               <Fragment key={i}>
                 <div className={styles.lesson}>
@@ -103,7 +103,7 @@ const Course = () => {
                   </div>
                 )}
               </Fragment>
-            );
+            )
           },
         )}
       {completedLessons?.some((val: number) =>
@@ -118,7 +118,7 @@ const Course = () => {
         </button>
       )}
     </Layout>
-  );
-};
+  )
+}
 
-export default Course;
+export default Course

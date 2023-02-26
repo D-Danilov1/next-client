@@ -1,6 +1,6 @@
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/Layout'
 
 const Mind = () => {
-  return <Layout>Mind</Layout>;
-};
-export default Mind;
+  return <Layout>Mind</Layout>
+}
+export default Mind

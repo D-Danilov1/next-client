@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import Modal from 'react-modal';
+import { FC } from 'react'
+import Modal from 'react-modal'
 
-import styles from './Admin.module.scss';
+import styles from './Admin.module.scss'
 
 const customStyles = {
   overlay: {
@@ -18,11 +18,11 @@ const customStyles = {
     backgroundColor: '#1c1c1e',
     border: 'none',
   },
-};
+}
 
 interface IModal {
-  modalIsOpen: boolean;
-  modalSetOpen: (arg: boolean) => void;
+  modalIsOpen: boolean
+  modalSetOpen: (arg: boolean) => void
 }
 
 const ModalWrapper: FC<IModal> = ({ modalIsOpen, modalSetOpen }) => {
@@ -35,6 +35,6 @@ const ModalWrapper: FC<IModal> = ({ modalIsOpen, modalSetOpen }) => {
     >
       <div className={styles.modal}></div>
     </Modal>
-  );
-};
-export default ModalWrapper;
+  )
+}
+export default ModalWrapper

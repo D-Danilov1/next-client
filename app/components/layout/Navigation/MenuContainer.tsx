@@ -1,13 +1,13 @@
-import cn from 'clsx';
-import dynamic from 'next/dynamic';
-import { FC } from 'react';
+import cn from 'clsx'
+import dynamic from 'next/dynamic'
+import { FC } from 'react'
 
-import styles from './Menu.module.scss';
-import { navMenu } from './menu.data';
+import styles from './Menu.module.scss'
+import { navMenu } from './menu.data'
 
 const DynamicMenu = dynamic(() => import('./Menu'), {
   ssr: false,
-});
+})
 
 const MenuContainer: FC = () => {
   return (
@@ -16,6 +16,6 @@ const MenuContainer: FC = () => {
         <DynamicMenu menu={navMenu} />
       </ul>
     </div>
-  );
-};
-export default MenuContainer;
+  )
+}
+export default MenuContainer
