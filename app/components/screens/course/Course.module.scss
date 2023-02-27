@@ -1,13 +1,13 @@
 .tablist {
   border: 1px solid #212123;
-  @apply flex items-center justify-start pl-5 gap-10 py-3 border-l-0 border-r-0;
+  @apply flex items-center justify-start pt-3 border-l-0 border-r-0;
   > div {
     border-bottom: 2px solid transparent;
-    @apply cursor-pointer;
+    @apply cursor-pointer pb-3 px-5;
   }
 }
 .days {
-  @apply flex items-center justify-start px-5 pt-2 gap-5 mb-5 overflow-x-scroll pb-1.5;
+  @apply flex items-center justify-start px-5 gap-5 pt-3 overflow-x-scroll;
   .day {
     @apply p-2 px-4 min-w-[120px] rounded-md border-gray border cursor-pointer relative;
     > span {

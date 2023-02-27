@@ -34,7 +34,7 @@ const Login: FC = () => {
       <form className={styles.authForm} autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <AuthFields formState={formState} register={registerInput} />
         <Link href="/registration" className={styles.text}>
-          Есть аккаунт?
+          Нет аккаунта?
         </Link>
         <button>Войти</button>
       </form>

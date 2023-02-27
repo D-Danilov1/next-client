@@ -1,6 +1,14 @@
 .tablist {
   border: 1px solid #212123;
-  @apply flex items-center justify-center gap-20 py-3 border-l-0 border-r-0;
+  @apply flex items-center justify-between pt-3 text-lg border-l-0 border-r-0 sm15:text-base sm2:text-xs;
+  > li {
+    @apply px-5 text-gray sm3:px-3 pb-3;
+  }
+}
+.wrapper {
+  > p:nth-child(3) {
+    @apply sm:text-lg sm15:text-sm sm2:text-xs sm4:text-[10px];
+  }
 }
 .text {
   @apply my-4 text-xl pl-5;
@@ -22,17 +30,20 @@
       > img {
         @apply h-full w-full max-h-[250px] object-cover rounded-2xl;
       }
-      .content {
-        @apply absolute bottom-5 left-5 text-xl sm3:text-lg text-white select-none;
-        > p {
-          @apply sm:text-sm;
+      .cardWrapper {
+        @apply absolute bottom-5 flex items-center justify-between w-full px-5 sm15:px-2;
+        .content {
+          @apply text-xl sm3:text-lg text-white select-none;
+          > p {
+            @apply text-xl;
+          }
+          > span {
+            @apply text-sm max-w-[63%] block sm15:hidden;
+          }
         }
-        > span {
-          @apply text-base max-w-[63%] block sm15:hidden;
+        .btn {
+          @apply text-white select-none p-2 border-blue border rounded-xl sm:text-base sm:p-1 sm:px-3 sm2:px-2 sm2:text-xs;
         }
-      }
-      .btn {
-        @apply absolute bottom-4 right-5 text-white select-none p-2 border-blue border rounded-xl sm:text-base sm:p-1 sm:px-3 sm2:px-1 sm2:text-xs;
       }
     }
   }
