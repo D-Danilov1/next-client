@@ -4,6 +4,10 @@ import { getDaysUrl } from 'config/api.config'
 import { IDays } from '@/shared/types/request.types'
 
 export const DaysService = {
+  async create(data: IDays) {
+    return axios.post<{ response: IDays }>(getDaysUrl(''), data)
+  },
+
   async findAll() {
     return axios.get<{ response: IDays[] }>(getDaysUrl(''))
   },

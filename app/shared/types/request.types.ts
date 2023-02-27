@@ -34,7 +34,15 @@ export interface IWeeks {
   name: string
 }
 
+export interface IWeeksCreate {
+  name: string
+}
+
 export interface IDays {
   id: number
+  name: string
+}
+
+export interface IDaysCreate {
   name: string
 }

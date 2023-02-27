@@ -4,6 +4,9 @@ import { getWeeksUrl } from 'config/api.config'
 import { IWeeks } from '@/shared/types/request.types'
 
 export const WeeksService = {
+  async create(data: IWeeks) {
+    return axios.post<{ response: IWeeks }>(getWeeksUrl(''), data)
+  },
   async findAll() {
     return axios.get<{ response: IWeeks[] }>(getWeeksUrl(''))
   },
