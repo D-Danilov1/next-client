@@ -1,9 +1,13 @@
 import axios from 'api/interceptors'
 import { getCoursesUrl } from 'config/api.config'
 
-import { ICourses } from '@/shared/types/request.types'
+import { ICourses, ICoursesCreate } from '@/shared/types/request.types'
 
 export const CoursesService = {
+  async create(data: ICoursesCreate) {
+    return axios.post<{ response: ICourses }>(getCoursesUrl(''), data)
+  },
+
   async findAll() {
     return axios.get<{ response: ICourses[] }>(getCoursesUrl(''))
   },

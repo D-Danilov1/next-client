@@ -1,14 +1,26 @@
-.field {
-  border: 1px dashed rgba(100, 100, 102, 0.8);
-  @apply h-[200px] relative;
-  > input {
-    @apply absolute top-0 left-0 w-full h-full opacity-0;
-  }
-  > svg {
-    @apply h-5 w-5 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2;
+// .field {
+//   border: 1px dashed rgba(100, 100, 102, 0.8);
+//   @apply h-[200px] relative;
+//   > input {
+//     @apply absolute top-0 left-0 w-full h-full opacity-0;
+//   }
+//   > svg {
+//     @apply h-5 w-5 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2;
+//   }
+
+//   > p {
+//     @apply text-center text-sm -translate-y-3;
+//   }
+// }
+
+.fieldImg {
+  @apply pl-14 mb-4;
+  > input::file-selector-button {
+    transition: all 0.3s ease;
+    @apply bg-gray border-none p-2 px-4 rounded-md cursor-pointer text-white;
   }
 
-  > p {
-    @apply text-center text-sm -translate-y-3;
+  > input::file-selector-button:hover {
+    background-color: rgb(38 38 38);
   }
 }

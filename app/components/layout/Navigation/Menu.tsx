@@ -20,9 +20,9 @@ const Menu: FC<{ menu: IMenu }> = ({ menu: { items } }) => {
       {items.map((item) => (
         <DynamicMenuItem key={item.link} {...item} />
       ))}
-      {user?.roles.includes('ADMIN') && (
+      {/* {user?.roles.includes('ADMIN') && (
         <MenuItem icon="MdOutlineLock" link={getAdminUrl()} title="Админ панель" />
-      )}
+      )} */}
     </>
   )
 }

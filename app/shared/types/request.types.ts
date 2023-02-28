@@ -1,5 +1,6 @@
 export interface ICompletedLessons {
   lesson_schedule_id: number
+  name: string
   user_id: string
 }
 
@@ -20,6 +21,7 @@ export interface ISortedLessonsInCourses {
   id: number
   lesson_id: number
   course_id: number
+  name: string
   day: IDays
   lesson: ILessons
 }
@@ -29,6 +31,13 @@ export interface ICourses {
   image: string
   description: string
 }
+
+export interface ICoursesCreate {
+  name: string
+  image: string
+  description: string
+}
+
 export interface IWeeks {
   id: number
   name: string
@@ -40,9 +49,5 @@ export interface IWeeksCreate {
 
 export interface IDays {
   id: number
-  name: string
-}
-
-export interface IDaysCreate {
   name: string
 }

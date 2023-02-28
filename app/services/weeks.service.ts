@@ -1,10 +1,10 @@
 import axios from 'api/interceptors'
 import { getWeeksUrl } from 'config/api.config'
 
-import { IWeeks } from '@/shared/types/request.types'
+import { IWeeks, IWeeksCreate } from '@/shared/types/request.types'
 
 export const WeeksService = {
-  async create(data: IWeeks) {
+  async create(data: IWeeksCreate) {
     return axios.post<{ response: IWeeks }>(getWeeksUrl(''), data)
   },
   async findAll() {

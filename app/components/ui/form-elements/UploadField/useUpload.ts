@@ -1,34 +1,26 @@
-import { ChangeEvent, RefObject, useMemo, useState } from 'react'
+import { ChangeEvent, useMemo, useState } from 'react'
 import { useCallback } from 'react'
 import { useMutation } from 'react-query'
-import { toastr } from 'react-redux-toastr'
 
 import { FileService } from '@/services/file.service'
 
 type TypeUpload = (
-  onChange: (arg: string[]) => void,
+  onChange: (arg: string) => void,
   folder?: string,
-  inputRef?: RefObject<HTMLInputElement>,
 ) => {
   uploadFile: (e: ChangeEvent<HTMLInputElement>) => Promise<void>
   isLoading: boolean
 }
 
-interface IUploadFile {
-  name: string
-  url: string
-}
-
-export const useUpload: TypeUpload = (onChange, folder, inputRef) => {
+export const useUpload: TypeUpload = (onChange, folder) => {
   const [isLoading, setIsLoading] = useState(false)
 
   const { mutateAsync } = useMutation(
-    'upload files',
+    'upload file',
     (data: FormData) => FileService.upload(data, folder),
     {
       onSuccess({ data }) {
-        const fileUrls = data.map((file: IUploadFile) => file.url)
-        onChange(fileUrls)
+        onChange(data[0].url)
       },
     },
   )
@@ -37,23 +29,14 @@ export const useUpload: TypeUpload = (onChange, folder, inputRef) => {
     async (e: ChangeEvent<HTMLInputElement>) => {
       setIsLoading(true)
       const files = e.target.files
-      if (files && files.length <= 10) {
+      if (files?.length) {
         const formData = new FormData()
-        Array.from(files).forEach((file) => formData.append('files', file))
+        formData.append('files', files[0])
         await mutateAsync(formData)
 
         setTimeout(() => {
           setIsLoading(false)
         }, 1000)
-      } else {
-        toastr.error(
-          'Ошибка',
-          'Одновременно можно загрузить только до 10 файлов, пожалуйста выберите файлы повторно',
-        )
-        setIsLoading(false)
-        if (inputRef?.current) {
-          inputRef.current.value = ''
-        }
       }
     },
     [mutateAsync],
