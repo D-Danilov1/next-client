@@ -1,7 +1,7 @@
-import { TypeMaterialIconName } from '@/shared/types/icon.types'
+import { StaticImageData } from 'next/image'
 
 export interface IMenuItem {
-  icon: TypeMaterialIconName
+  icon: StaticImageData
   link: string
   title: string
 }

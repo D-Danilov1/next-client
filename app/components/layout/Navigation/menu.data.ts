@@ -1,10 +1,12 @@
+import Logo from '@/assets/images/logo.jpg'
+
 import { IMenu } from './menu.interface'
 
 export const navMenu: IMenu = {
   items: [
     {
       title: 'Next',
-      icon: 'MdNextPlan',
+      icon: Logo,
       link: '/',
     },
     // {
