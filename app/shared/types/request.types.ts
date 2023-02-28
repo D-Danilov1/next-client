@@ -1,6 +1,5 @@
 export interface ICompletedLessons {
   lesson_schedule_id: number
-  name: string
   user_id: string
 }
 

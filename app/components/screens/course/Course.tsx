@@ -37,7 +37,7 @@ const Course = () => {
       for (let key of courseSortedLessons[activeTabId][activeTabDayId]) {
         await mutateAsync({
           lesson_schedule_id: key.id,
-          user_id: user.id,
+          user_id: user.id
         })
       }
     }
