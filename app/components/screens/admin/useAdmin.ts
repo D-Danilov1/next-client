@@ -1,25 +1,25 @@
 import { useMemo } from 'react'
 import { useMutation } from 'react-query'
 
-import { IDays, IWeeks } from '@/shared/types/request.types'
+import { ICoursesCreate, IWeeks, IWeeksCreate } from '@/shared/types/request.types'
 
-import { DaysService } from '@/services/days.service'
 import { WeeksService } from '@/services/weeks.service'
+import { CoursesService } from '@/services/courses.service'
 
 export const useAdmin = () => {
-  const { mutateAsync: createDay } = useMutation('create day', (data: IDays) =>
-    DaysService.create(data),
+  const { mutateAsync: createWeek } = useMutation('create week', (data: IWeeksCreate) =>
+    WeeksService.create(data),
   )
 
-  const { mutateAsync: createWeek } = useMutation('create week', (data: IWeeks) =>
-    WeeksService.create(data),
+  const { mutateAsync: createCourse } = useMutation('create course', (data: ICoursesCreate) =>
+    CoursesService.create(data),
   )
 
   return useMemo(
     () => ({
-      createDay,
       createWeek,
+      createCourse,
     }),
-    [createDay, createWeek],
+    [createWeek, createCourse],
   )
 }

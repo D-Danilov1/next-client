@@ -6,22 +6,14 @@ import Layout from '@/components/layout/Layout'
 import Heading from '@/components/ui/heading/Heading'
 import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
-import { IDaysCreate, IWeeksCreate } from '@/shared/types/request.types'
+import { ICoursesCreate, IWeeksCreate } from '@/shared/types/request.types'
 
 import styles from './Admin.module.scss'
 import Modal from './Modal'
 import { useAdmin } from './useAdmin'
 
 const Admin = () => {
-  const { createDay, createWeek } = useAdmin()
-  const {
-    register: registerDays,
-    formState: formStateDays,
-    handleSubmit: handleSubmitDays,
-    reset: resetDays,
-  } = useForm<IDaysCreate>({
-    mode: 'onSubmit',
-  })
+  const { createWeek, createCourse } = useAdmin()
 
   const {
     register: registerWeeks,
@@ -32,31 +24,32 @@ const Admin = () => {
     mode: 'onSubmit',
   })
 
-  const [modalDaysIsOpen, modalDaySetOpen] = useState(false)
+  const {
+    register: registerCourses,
+    formState: formStateCourses,
+    handleSubmit: handleSubmitCourses,
+    reset: resetCourses,
+    control: controlCourses,
+  } = useForm<ICoursesCreate>({
+    mode: 'onSubmit',
+  })
+
   const [modalWeeksIsOpen, modalWeeksSetOpen] = useState(false)
+  const [modalCoursesIsOpen, modalCoursesSetOpen] = useState(false)
 
   return (
     <Layout>
       <Heading title="Админ панель" />
       <div className={styles.wrapper}>
         <div className={styles.block}>
-          <SubHeading title="Создание дня" />
-          <button onClick={() => modalDaySetOpen(true)}>Создать</button>
+          <SubHeading title="Создание курса" />
+          <button onClick={() => modalCoursesSetOpen(true)}>Создать</button>
         </div>
         <div className={styles.block}>
           <SubHeading title="Создание недели" />
           <button onClick={() => modalWeeksSetOpen(true)}>Создать</button>
         </div>
       </div>
-      <Modal
-        submitData={createDay}
-        handleSubmit={handleSubmitDays}
-        modalIsOpen={modalDaysIsOpen}
-        modalSetOpen={modalDaySetOpen}
-        formState={formStateDays}
-        register={registerDays}
-        reset={resetDays}
-      />
       <Modal
         submitData={createWeek}
         handleSubmit={handleSubmitWeeks}
@@ -65,6 +58,19 @@ const Admin = () => {
         formState={formStateWeeks}
         register={registerWeeks}
         reset={resetWeeks}
+        title="Создание недель"
+      />
+      <Modal
+        isCourse
+        title="Создание курса"
+        submitData={createCourse}
+        handleSubmit={handleSubmitCourses}
+        modalIsOpen={modalCoursesIsOpen}
+        modalSetOpen={modalCoursesSetOpen}
+        formState={formStateCourses}
+        register={registerCourses}
+        reset={resetCourses}
+        control={controlCourses}
       />
     </Layout>
   )

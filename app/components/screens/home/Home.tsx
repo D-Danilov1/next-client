@@ -21,12 +21,12 @@ const Home = () => {
         <Players url="/uploads/default/start2.mp4" />
         <SubHeading title="Выбери курс из разделов ниже и начни свою трансформацию" />
         <Tabs>
-          <TabList className={styles.tablist}>
+          {/* <TabList className={styles.tablist}>
             <Tab>Без подписки</Tab>
             <Tab>Challenge</Tab>
             <Tab>Дом</Tab>
             <Tab>Гантели</Tab>
-          </TabList>
+          </TabList> */}
           <TabPanel>
             <Players url="/uploads/default/start.mp4" />
             <p className={styles.text}>Выберите курс</p>

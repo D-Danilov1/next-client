@@ -61,6 +61,7 @@ const Course = () => {
       </div>
       <div className={styles.days}>
         {courseSortedLessons[activeTabId]?.map((el: ISortedLessonsInCourses[], i: number) => {
+          console.log(el)
           return (
             <div
               className={cn(styles.day, {
@@ -70,14 +71,14 @@ const Course = () => {
               onClick={() => setActiveTabDayId(i)}
             >
               <span>День {i + 1}</span>
-              <p>{el[0].day.name}</p>
+              <p>{el[0].name}</p>
             </div>
           )
         })}
       </div>
       {courseSortedLessons &&
-        courseSortedLessons.length &&
-        courseSortedLessons[activeTabId][activeTabDayId].map(
+        courseSortedLessons?.length &&
+        courseSortedLessons[activeTabId][activeTabDayId]?.map(
           (el: ISortedLessonsInCourses, i: number) => {
             const { lesson } = el
             return (
@@ -108,7 +109,7 @@ const Course = () => {
         )}
       {completedLessons?.some((val: number) =>
         courseSortedLessons[activeTabId][activeTabDayId]
-          .map((val: ISortedLessonsInCourses) => val.id)
+          ?.map((val: ISortedLessonsInCourses) => val.id)
           .includes(val),
       ) ? (
         <p className={styles.text}>День завершен</p>

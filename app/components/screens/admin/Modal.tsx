@@ -1,11 +1,23 @@
 import { FC } from 'react'
-import { FieldValues, FormState, SubmitHandler, UseFormRegister } from 'react-hook-form'
+import {
+  Control,
+  Controller,
+  FieldValues,
+  FormState,
+  SubmitHandler,
+  UseFormHandleSubmit,
+  UseFormRegister,
+  UseFormReset,
+} from 'react-hook-form'
 import Modal from 'react-modal'
+import { UseMutateAsyncFunction } from 'react-query'
 
+import MaterialIcon from '@/components/ui/MaterialIcon'
 import Field from '@/components/ui/form-elements/Field'
+import UploadField from '@/components/ui/form-elements/UploadField/UploadFields'
 import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
-import { IDaysCreate, IWeeksCreate } from '@/shared/types/request.types'
+import { ICourses, ICoursesCreate, IWeeksCreate } from '@/shared/types/request.types'
 
 import styles from './Admin.module.scss'
 
@@ -31,9 +43,12 @@ interface IModal {
   modalSetOpen: (arg: boolean) => void
   register: UseFormRegister<any>
   formState: FormState<FieldValues>
-  handleSubmit: any
+  handleSubmit: UseFormHandleSubmit<IWeeksCreate>
   submitData: any
-  reset: any
+  reset: UseFormReset<any>
+  isCourse?: boolean
+  title: string
+  control?: Control<ICoursesCreate, any>
 }
 
 const ModalWrapper: FC<IModal> = ({
@@ -44,8 +59,11 @@ const ModalWrapper: FC<IModal> = ({
   handleSubmit,
   submitData,
   reset,
+  isCourse,
+  title,
+  control,
 }) => {
-  const onSubmit: SubmitHandler<IDaysCreate | IWeeksCreate> = async (data) => {
+  const onSubmit: SubmitHandler<IWeeksCreate | ICoursesCreate> = async (data) => {
     await submitData(data)
     modalSetOpen(false)
     reset()
@@ -59,7 +77,10 @@ const ModalWrapper: FC<IModal> = ({
       ariaHideApp={false}
     >
       <form className={styles.modal} autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <SubHeading title="Введите имя" />
+        <SubHeading title={title} />
+        <span onClick={() => modalSetOpen(false)}>
+          <MaterialIcon name="MdClose" />
+        </span>
         <Field
           {...register('name', {
             required: true,
@@ -71,6 +92,32 @@ const ModalWrapper: FC<IModal> = ({
           placeholder="Имя"
           error={errors.name}
         />
+        {isCourse && (
+          <>
+            <span onClick={() => modalSetOpen(false)}>
+              <MaterialIcon name="MdClose" />
+            </span>
+
+            <Field
+              {...register('description', {
+                required: true,
+                minLength: {
+                  value: 2,
+                  message: 'Длина должна быть больше 2 символов',
+                },
+              })}
+              placeholder="Описание"
+              error={errors.description}
+            />
+            <Controller
+              control={control}
+              name="image"
+              render={({ field: { onChange } }) => (
+                <UploadField onChange={onChange} folder="courses" />
+              )}
+            />
+          </>
+        )}
         <button>Создать</button>
       </form>
     </Modal>
