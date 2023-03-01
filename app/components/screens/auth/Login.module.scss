@@ -1,6 +1,6 @@
 .auth {
   transform: translate(-50%, -70%);
-  @apply flex flex-col items-center p-10 max-w-fit mx-auto fixed top-1/2 left-1/2 sm:p-0;
+  @apply flex flex-col items-center p-10 max-w-fit mx-auto fixed top-1/2 left-1/2 sm:p-0 sm3:max-w-[400px] sm3:w-full;
   > div:first-child {
     @apply mb-7;
   }
@@ -9,7 +9,7 @@
   }
 
   .authForm {
-    @apply flex flex-col min-w-[380px];
+    @apply flex flex-col min-w-[380px] sm3:max-w-[380px] sm3:min-w-0;
     > button {
       transition: all 0.5s ease;
       @apply mb-3 mx-auto px-10 py-2 rounded-xl w-full border-blue border;
