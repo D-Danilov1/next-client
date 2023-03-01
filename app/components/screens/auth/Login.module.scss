@@ -9,7 +9,7 @@
   }
 
   .authForm {
-    @apply flex flex-col min-w-[380px] sm3:max-w-[380px] sm3:min-w-0;
+    @apply flex flex-col min-w-[380px] sm3:max-w-[380px] sm3:min-w-0 sm3:w-full sm3:px-4;
     > button {
       transition: all 0.5s ease;
       @apply mb-3 mx-auto px-10 py-2 rounded-xl w-full border-blue border;
