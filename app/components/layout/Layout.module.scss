@@ -11,7 +11,7 @@ $bar-width: 250px;
   }
   > .center {
     margin: 0 0 0px $bar-width;
-    @apply p-10 pt-6 sm:p-0 sm:pt-4 sm:pb-24 sm15:pb-20 sm3:pb-12 sm:m-0;
+    @apply p-10 min-h-[97vh] pt-6 sm:p-0 sm:pt-4 sm:pb-24 sm15:pb-20 sm3:pb-12 sm:m-0;
     .header {
       @apply flex justify-end;
     }

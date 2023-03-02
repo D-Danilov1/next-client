@@ -17,7 +17,7 @@
       @apply text-white border-none;
     }
     > svg {
-      @apply absolute top-3 right-3;
+      @apply absolute opacity-60 top-3 right-3;
     }
   }
   .activeDay {
@@ -39,12 +39,20 @@
   > img {
     @apply w-full object-cover max-h-[300px];
   }
+
   > p {
     @apply absolute bottom-8 left-5 max-w-[70%] text-3xl sm15:text-2xl sm15:left-4 sm2:bottom-4;
   }
 
   > button {
     @apply absolute bottom-8 right-5 text-2xl border-blue border px-5 py-1 rounded-lg sm15:px-1 sm:text-lg sm15:bottom-4 sm15:right-4;
+  }
+}
+.lessonLock {
+  transform: translateX(-50%);
+  @apply text-center absolute top-1/2 left-1/2 text-center;
+  > span {
+    @apply text-gray;
   }
 }
 

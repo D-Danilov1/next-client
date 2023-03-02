@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { errorCatch } from 'api/api.helpers'
+import { toast } from 'react-toastify'
 
 import { AuthService } from '@/services/auth/auth.service'
 
@@ -11,6 +12,7 @@ export const login = createAsyncThunk<IAuthResponse, IAuthUser>(
     try {
       return await AuthService.login(email, password)
     } catch (error) {
+      toast.error('Неверная почта, либо пароль')
       return thunkAPI.rejectWithValue(error)
     }
   },
@@ -23,6 +25,7 @@ export const registration = createAsyncThunk<IAuthResponse, IAuthUser>(
       const response = await AuthService.register(email, password)
       return response
     } catch (error) {
+      toast.error('Аккаунт с такой почтой уже зарегистрирован')
       return thunkAPI.rejectWithValue(error)
     }
   },

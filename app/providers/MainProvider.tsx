@@ -1,7 +1,10 @@
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
+import 'react-toastify/dist/ReactToastify.css'
 import { store } from 'store/store'
+
+import Toast from '@/components/ui/toast/Toast'
 
 import { TypeComponentAuthFields } from '@/shared/types/auth.types'
 
@@ -22,6 +25,7 @@ const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <AuthProvider Component={Component}>{children}</AuthProvider>
+          <Toast />
         </QueryClientProvider>
       </Provider>
     </HeaderProvider>
