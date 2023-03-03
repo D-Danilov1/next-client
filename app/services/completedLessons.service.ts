@@ -20,8 +20,8 @@ export const CompletedLessonsService = {
     return axios.get<{ response: ICompletedLessons }>(getCompletedLessonsUrl(`schedule/${id}`))
   },
 
-  async findAllBySchedule() {
-    return axios.get<{ response: number[] }>(getCompletedLessonsUrl(`all-schedule`))
+  async findAllBySchedule(id: string) {
+    return axios.post<{ response: number[] }>(getCompletedLessonsUrl(`all-schedule`), id)
   },
 
   async findByName(name: string) {

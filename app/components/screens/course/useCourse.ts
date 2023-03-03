@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { useMutation, useQuery } from 'react-query'
 
+import { useAuth } from '@/hooks/useAuth'
+
 import { ICompletedLessons } from '@/shared/types/request.types'
 
 import { CompletedLessonsService } from '@/services/completedLessons.service'
@@ -10,6 +12,8 @@ import { LessonsInCoursesService } from '@/services/lessonsInCourses.service'
 
 export const useCourse = () => {
   const { query } = useRouter()
+  const { user } = useAuth()
+  console.log(user)
 
   const { data: course } = useQuery(
     'get courses',
@@ -33,9 +37,14 @@ export const useCourse = () => {
     data: completedLessons,
     isLoading,
     refetch,
-  } = useQuery('get completed lessons', () => CompletedLessonsService.findAllBySchedule(), {
-    select: ({ data }) => data.response,
-  })
+  } = useQuery(
+    'get completed lessons',
+    () => CompletedLessonsService.findAllBySchedule(String(user?.id)),
+    {
+      select: ({ data }) => data.response,
+      enabled: !!user?.id,
+    },
+  )
 
   const { data: courseSortedLessons } = useQuery(
     'get sorted course lessons',
