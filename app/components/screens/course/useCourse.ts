@@ -13,7 +13,6 @@ import { LessonsInCoursesService } from '@/services/lessonsInCourses.service'
 export const useCourse = () => {
   const { query } = useRouter()
   const { user } = useAuth()
-  console.log(user)
 
   const { data: course } = useQuery(
     'get courses',

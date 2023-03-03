@@ -24,8 +24,11 @@ const Registration: FC = () => {
   const { registration, login } = useActions()
 
   const onSubmit: SubmitHandler<IAuthInput> = async (data) => {
-    await registration(data)
-    await login(data)
+    const response: any = await registration(data)
+    if (!response?.error) {
+      await login(data)
+    }
+
     reset()
   }
 

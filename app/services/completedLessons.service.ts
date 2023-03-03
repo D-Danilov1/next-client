@@ -21,7 +21,6 @@ export const CompletedLessonsService = {
   },
 
   async findAllBySchedule(id: string) {
-    console.log(id)
     return axios.post<{ response: number[] }>(getCompletedLessonsUrl(`all-schedule`), {id: String(id)})
   },
 

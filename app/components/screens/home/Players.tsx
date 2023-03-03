@@ -10,9 +10,10 @@ import styles from './Home.module.scss'
 
 interface IPlayers {
   url: string
+  image: any
 }
 
-const Players: FC<IPlayers> = ({ url }) => {
+const Players: FC<IPlayers> = ({ url, image }) => {
   const [showPreview, setShowPreview] = useState(false)
 
   return (
@@ -20,7 +21,7 @@ const Players: FC<IPlayers> = ({ url }) => {
       <Player url={url} autoPlay={showPreview} />
       <Image
         className={cn({ [styles.active]: showPreview })}
-        src={Preview}
+        src={image}
         height={300}
         width={600}
         alt=""

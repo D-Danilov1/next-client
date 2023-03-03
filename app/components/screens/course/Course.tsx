@@ -101,10 +101,11 @@ const Course = () => {
                 ) : (
                   <div className={styles.lesson}>
                     <Image
-                      src={lesson.image}
+                      src={lesson?.image}
                       width={200}
                       height={100}
                       priority
+                      unoptimized
                       alt="lesson"
                       draggable={false}
                     />

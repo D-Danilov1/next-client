@@ -7,6 +7,9 @@ import Layout from '@/components/layout/Layout'
 import Heading from '@/components/ui/heading/Heading'
 import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
+import Preview2 from '@/assets/images/preview2.jpg'
+import Preview from '@/assets/images/preview.jpg'
+
 import styles from './Home.module.scss'
 import Players from './Players'
 import { useHome } from './useHome'
@@ -18,7 +21,7 @@ const Home = () => {
     <Layout>
       <div className={styles.wrapper}>
         <Heading title="Тренировки" />
-        <Players url="/uploads/default/start2.mp4" />
+        <Players url="/uploads/default/start2.mp4" image={Preview} />
         <SubHeading title="Выбери курс из разделов ниже и начни свою трансформацию" />
         <Tabs>
           {/* <TabList className={styles.tablist}>
@@ -28,7 +31,7 @@ const Home = () => {
             <Tab>Гантели</Tab>
           </TabList> */}
           <TabPanel>
-            <Players url="/uploads/default/start.mp4" />
+            <Players url="/uploads/default/start.mp4" image={Preview2} />
             <p className={styles.text}>Выберите курс</p>
             <div className={styles.cards}>
               {courses &&
