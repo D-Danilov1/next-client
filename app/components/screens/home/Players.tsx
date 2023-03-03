@@ -14,6 +14,7 @@ interface IPlayers {
 
 const Players: FC<IPlayers> = ({ url }) => {
   const [showPreview, setShowPreview] = useState(false)
+
   return (
     <div className={styles.video}>
       <Player url={url} autoPlay={showPreview} />
