@@ -9,6 +9,7 @@ import { IMenuItem } from './menu.interface'
 
 const MenuItem: FC<IMenuItem> = ({ icon, link, title }) => {
   const { asPath } = useRouter()
+
   return (
     <li
       className={cn({
@@ -16,7 +17,15 @@ const MenuItem: FC<IMenuItem> = ({ icon, link, title }) => {
       })}
     >
       <Link href={link}>
-        <Image src={icon} width={20} height={20} alt="icon" />
+        <Image
+          src={icon}
+          width={20}
+          height={20}
+          alt="icon"
+          priority
+          unoptimized
+          draggable={false}
+        />
         <span>{title}</span>
       </Link>
     </li>

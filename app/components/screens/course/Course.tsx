@@ -18,10 +18,17 @@ const Course = () => {
   const [isVisiblePlayer, setVisiblePlayer] = useState(false)
   const [activeTabId, setActiveTabId] = useState(0)
   const [activeTabDayId, setActiveTabDayId] = useState(0)
+  const [videoLink, setVideoLink] = useState<string | null>(null)
+
+  const handlePlay = (url: string) => {
+    setVisiblePlayer(true)
+    setVideoLink(url)
+  }
 
   const { course, courseLessons, courseSortedLessons, mutateAsync, completedLessons } = useCourse()
 
   const { user } = useAuth()
+
   useEffect(() => {
     if (isVisiblePlayer) {
       document.body.classList.add('lock')
@@ -110,7 +117,7 @@ const Course = () => {
                       draggable={false}
                     />
                     <p>{lesson.name}</p>
-                    <button onClick={() => setVisiblePlayer(true)}>Смотреть</button>
+                    <button onClick={() => handlePlay(lesson.link)}>Смотреть</button>
                   </div>
                 )}
 
@@ -119,7 +126,7 @@ const Course = () => {
                     <div className={styles.close} onClick={() => setVisiblePlayer(false)}>
                       <MaterialIcon name="MdClose" />
                     </div>
-                    <Player url={lesson.link} />
+                    <Player url={String(videoLink)} />
                   </div>
                 )}
               </Fragment>

@@ -1,16 +1,14 @@
 import cn from 'clsx'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { FC, useState } from 'react'
 
 import Player from '@/components/ui/player/Player'
-
-import Preview from '@/assets/images/preview.jpg'
 
 import styles from './Home.module.scss'
 
 interface IPlayers {
   url: string
-  image: any
+  image: StaticImageData
 }
 
 const Players: FC<IPlayers> = ({ url, image }) => {
@@ -22,6 +20,8 @@ const Players: FC<IPlayers> = ({ url, image }) => {
       <Image
         className={cn({ [styles.active]: showPreview })}
         src={image}
+        draggable={false}
+        priority
         height={300}
         width={600}
         alt=""

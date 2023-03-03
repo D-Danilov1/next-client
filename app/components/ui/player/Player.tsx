@@ -32,7 +32,7 @@ const Player: FC<IPlayer> = ({ url, autoPlay = false }) => {
     <>
       {isLoading && (
         <div className={styles.loading}>
-          <ReactLoading type="balls" color="#ffffff" height={40} width={40} />
+          <ReactLoading type="spinningBubbles" color="#ffffff" height={40} width={40} />
         </div>
       )}
       <Plyr
