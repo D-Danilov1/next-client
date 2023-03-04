@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { TabPanel, Tabs } from 'react-tabs'
 
 import Layout from '@/components/layout/Layout'
+import SkeletonLoader from '@/components/ui/SkeletonLoader'
 import Heading from '@/components/ui/heading/Heading'
 import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
@@ -15,7 +16,7 @@ import Players from './Players'
 import { useHome } from './useHome'
 
 const Home = () => {
-  const { courses } = useHome()
+  const { courses, isLoading } = useHome()
 
   return (
     <Layout>
@@ -34,8 +35,7 @@ const Home = () => {
             <Players url="/uploads/default/start.mp4" image={Preview2} />
             <p className={styles.text}>Выберите курс</p>
             <div className={styles.cards}>
-              {courses &&
-                courses?.length &&
+              {!isLoading ? (
                 courses?.map((course) => (
                   <div className={styles.card} key={course.id}>
                     <Link href={getCourseUrl(String(course.id))}>
@@ -57,7 +57,14 @@ const Home = () => {
                       </div>
                     </Link>
                   </div>
-                ))}
+                ))
+              ) : (
+                <SkeletonLoader
+                  count={1}
+                  className={styles.skeletonLoader}
+                  containerClassName={styles.containerLoader}
+                />
+              )}
             </div>
           </TabPanel>
         </Tabs>

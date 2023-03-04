@@ -45,7 +45,7 @@ export const useCourse = () => {
     },
   )
 
-  const { data: courseSortedLessons } = useQuery(
+  const { data: courseSortedLessons, isLoading: isLoadingSortedLessons } = useQuery(
     'get sorted course lessons',
     () => LessonsInCoursesService.getSortedCourse(String(query?.id)),
     {
@@ -70,7 +70,16 @@ export const useCourse = () => {
       mutateAsync,
       completedLessons,
       isLoading,
+      isLoadingSortedLessons,
     }),
-    [course, courseLessons, courseSortedLessons, mutateAsync, completedLessons, isLoading],
+    [
+      course,
+      courseLessons,
+      courseSortedLessons,
+      isLoadingSortedLessons,
+      mutateAsync,
+      completedLessons,
+      isLoading,
+    ],
   )
 }

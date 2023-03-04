@@ -94,3 +94,31 @@
 .text {
   @apply text-center text-gray text-2xl mt-5;
 }
+.containerLoaderWeeks {
+  @apply w-full flex;
+
+  .skeletonLoaderWeeks {
+    @apply relative h-[38px] w-[67px] mx-5 mb-3;
+  }
+}
+
+.containerLoaderDays {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  overflow-x: scroll;
+  .skeletonLoaderDays {
+    @apply relative h-[70px] min-w-[120px];
+  }
+}
+.containerLoaderDays::-webkit-scrollbar {
+  display: none;
+}
+
+.containerLoaderLessons {
+  @apply flex flex-col w-full;
+  .skeletonLoaderLessons {
+    @apply relative h-[250px] min-w-[120px];
+  }
+}
