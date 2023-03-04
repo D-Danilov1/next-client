@@ -53,7 +53,7 @@
 }
 .lessonLock {
   transform: translateX(-50%);
-  @apply text-center absolute top-1/2 left-1/2 text-center;
+  @apply text-center absolute left-1/2;
   > span {
     @apply text-gray;
   }
