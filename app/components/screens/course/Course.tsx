@@ -99,8 +99,7 @@ const Course = () => {
         ) : (
           courseSortedLessons &&
           courseSortedLessons[activeTabId]?.map((el: ISortedLessonsInCourses[], i: number) => {
-            const lesson = el.map((el) => el.lesson.id)
-            const isCompleted = lesson?.some((item) => completedLessons?.includes(item))
+            const isCompleted = el.some((item) => completedLessons?.includes(item.id))
 
             if (isCompleted) {
               activeId = i + 1
@@ -132,7 +131,8 @@ const Course = () => {
           containerClassName={styles.containerLoaderLessons}
         />
       ) : (
-        courseSortedLessons && courseSortedLessons[activeTabId][activeTabDayId]?.map(
+        courseSortedLessons &&
+        courseSortedLessons[activeTabId][activeTabDayId]?.map(
           (el: ISortedLessonsInCourses, i: number) => {
             const { lesson } = el
             const isLock = activeTabDayId > activeId
