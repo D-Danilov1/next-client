@@ -20,7 +20,7 @@
       @apply absolute opacity-60 top-3 right-3;
     }
     .lock {
-      @apply text-gray;
+      @apply text-gray w-[300px];
     }
   }
   .activeDay {
@@ -37,7 +37,7 @@
 }
 .btn {
   transition: all 0.5s ease;
-  @apply mb-3 mx-auto px-14 py-2.5 rounded-xl max-w-[300px] text-center border-blue border flex items-center justify-center mt-5;
+  @apply mb-3 mx-auto px-14 py-2.5 rounded-xl max-w-[280px] h-[46px] w-full text-center border-blue border flex items-center justify-center mt-5;
 }
 
 .lesson {
@@ -47,7 +47,7 @@
   }
 
   > p {
-    @apply absolute bottom-8 left-5 max-w-[70%] text-3xl sm15:text-2xl sm15:left-4 sm2:bottom-4;
+    @apply absolute bottom-8 left-5 max-w-[70%] text-3xl sm15:text-xl sm15:left-4 sm2:bottom-4;
   }
 
   > button {

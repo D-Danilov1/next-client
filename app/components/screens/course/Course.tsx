@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import Image from 'next/image'
 import { Fragment, useEffect, useState } from 'react'
+import ReactLoading from 'react-loading'
 
 import Layout from '@/components/layout/Layout'
 import MaterialIcon from '@/components/ui/MaterialIcon'
@@ -19,6 +20,7 @@ const Course = () => {
   const [activeTabId, setActiveTabId] = useState(0)
   const [activeTabDayId, setActiveTabDayId] = useState(0)
   const [videoLink, setVideoLink] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handlePlay = (url: string) => {
     setVisiblePlayer(true)
@@ -47,12 +49,15 @@ const Course = () => {
 
   const handleComplete = async () => {
     if (user) {
-      for (let key of courseSortedLessons[activeTabId][activeTabDayId]) {
-        await mutateAsync({
-          lesson_schedule_id: key.id,
+      setIsLoading(true)
+      const promises = courseSortedLessons[activeTabId][activeTabDayId].map(({ id }: any) => {
+        return mutateAsync({
+          lesson_schedule_id: id,
           user_id: user.id,
         })
-      }
+      })
+      await Promise.all(promises)
+      setIsLoading(false)
     }
   }
 
@@ -81,9 +86,12 @@ const Course = () => {
           if (isCompleted) {
             activeId = i + 1
           }
-          console.log(activeId !== i)
 
           const isLock = activeId !== i || !(activeTabId === 0 ? true : weekIsCompleted)
+
+          if (!isLock) {
+            console.log(isLock)
+          }
 
           return (
             <div
@@ -96,7 +104,7 @@ const Course = () => {
               {isLock &&
                 (isCompleted ? <MaterialIcon name="MdCheck" /> : <MaterialIcon name="MdLock" />)}
               <span>День {i + 1}</span>
-              <p className={cn({[styles.lock]: isLock && !isCompleted})}>{el[0].name}</p>
+              <p className={cn({ [styles.lock]: isLock && !isCompleted })}>{el[0].name}</p>
             </div>
           )
         })}
@@ -150,7 +158,11 @@ const Course = () => {
           <p className={styles.text}>День завершен</p>
         ) : (
           <button className={styles.btn} onClick={handleComplete}>
-            Завершить день
+            {isLoading ? (
+              <ReactLoading type="spokes" color="#ffffff" height={20} width={20} />
+            ) : (
+              'Завершить день'
+            )}
           </button>
         ))}
     </Layout>

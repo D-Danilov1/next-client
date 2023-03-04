@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import ReactLoading from 'react-loading'
 
 import { useActions } from '@/hooks/useActions'
 import { useAuthRedirect } from '@/hooks/useAuthRedirect'
@@ -11,6 +12,7 @@ import { IAuthInput } from './auth.interface'
 
 const Login: FC = () => {
   useAuthRedirect()
+  const [isLoading, setIsLoading] = useState(false)
 
   const {
     register: registerInput,
@@ -24,7 +26,9 @@ const Login: FC = () => {
   const { login } = useActions()
 
   const onSubmit: SubmitHandler<IAuthInput> = async (data) => {
+    setIsLoading(true)
     await login(data)
+    setIsLoading(false)
     reset()
   }
 
@@ -36,7 +40,13 @@ const Login: FC = () => {
         <Link href="/registration" className={styles.text}>
           Нет аккаунта?
         </Link>
-        <button>Войти</button>
+        <button>
+          {isLoading ? (
+            <ReactLoading type="spokes" color="#ffffff" height={20} width={20} />
+          ) : (
+            'Войти'
+          )}
+        </button>
       </form>
     </div>
   )

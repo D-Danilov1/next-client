@@ -12,7 +12,10 @@
     @apply flex flex-col min-w-[380px] sm3:max-w-[380px] sm3:min-w-0 sm3:w-full sm3:px-4;
     > button {
       transition: all 0.5s ease;
-      @apply mb-3 mx-auto px-10 py-2 rounded-xl w-full border-blue border;
+      @apply mb-3 text-center mx-auto px-10 py-2 rounded-xl w-full border-blue border h-[42px];
+      > div {
+        @apply mx-auto;
+      }
     }
     > button:hover {
       @apply opacity-100;

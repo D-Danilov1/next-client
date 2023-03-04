@@ -1,7 +1,7 @@
 import { getCourseUrl } from 'config/url.config'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
+import { TabPanel, Tabs } from 'react-tabs'
 
 import Layout from '@/components/layout/Layout'
 import Heading from '@/components/ui/heading/Heading'
