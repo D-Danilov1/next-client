@@ -19,6 +19,9 @@
     > svg {
       @apply absolute opacity-60 top-3 right-3;
     }
+    .lock {
+      @apply text-gray;
+    }
   }
   .activeDay {
     @apply p-2 px-4 min-w-[120px] rounded-md border-blue border;

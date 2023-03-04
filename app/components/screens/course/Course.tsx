@@ -82,6 +82,9 @@ const Course = () => {
             activeId = i + 1
           }
           console.log(activeId !== i)
+
+          const isLock = activeId !== i || !(activeTabId === 0 ? true : weekIsCompleted)
+
           return (
             <div
               className={cn(styles.day, {
@@ -90,10 +93,10 @@ const Course = () => {
               key={i}
               onClick={() => setActiveTabDayId(i)}
             >
-              {(activeId !== i || !(activeTabId === 0 ? true : weekIsCompleted)) &&
+              {isLock &&
                 (isCompleted ? <MaterialIcon name="MdCheck" /> : <MaterialIcon name="MdLock" />)}
               <span>День {i + 1}</span>
-              <p>{el[0].name}</p>
+              <p className={cn({[styles.lock]: isLock && !isCompleted})}>{el[0].name}</p>
             </div>
           )
         })}
