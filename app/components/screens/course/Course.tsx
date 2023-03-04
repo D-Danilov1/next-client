@@ -39,6 +39,12 @@ const Course = () => {
 
   if (!course || !courseLessons || !courseSortedLessons || !courseLessons.length) return null
 
+  const ids = courseSortedLessons[0].flatMap((lessonArray: any) =>
+    lessonArray.map((lesson: any) => lesson.id),
+  )
+
+  const weekIsCompleted = ids.every((id: number) => completedLessons?.includes(id))
+
   const handleComplete = async () => {
     if (user) {
       for (let key of courseSortedLessons[activeTabId][activeTabDayId]) {
@@ -75,7 +81,7 @@ const Course = () => {
           if (isCompleted) {
             activeId = i + 1
           }
-
+          console.log(activeId !== i)
           return (
             <div
               className={cn(styles.day, {
@@ -84,7 +90,7 @@ const Course = () => {
               key={i}
               onClick={() => setActiveTabDayId(i)}
             >
-              {activeId !== i &&
+              {(activeId !== i || !(activeTabId === 0 ? true : weekIsCompleted)) &&
                 (isCompleted ? <MaterialIcon name="MdCheck" /> : <MaterialIcon name="MdLock" />)}
               <span>День {i + 1}</span>
               <p>{el[0].name}</p>
@@ -92,48 +98,47 @@ const Course = () => {
           )
         })}
       </div>
-      {courseSortedLessons &&
-        courseSortedLessons?.length &&
-        courseSortedLessons[activeTabId][activeTabDayId]?.map(
-          (el: ISortedLessonsInCourses, i: number) => {
-            const { lesson } = el
-            const isLock = activeTabDayId > activeId
+      {courseSortedLessons[activeTabId][activeTabDayId]?.map(
+        (el: ISortedLessonsInCourses, i: number) => {
+          const { lesson } = el
+          const isLock = activeTabDayId > activeId
 
-            return (
-              <Fragment key={i}>
-                {isLock ? (
-                  <div className={styles.lessonLock}>
-                    <span>Этот день будет доступен, когда ты закончишь текущий</span>
-                  </div>
-                ) : (
-                  <div className={styles.lesson}>
-                    <Image
-                      src={lesson?.image}
-                      width={200}
-                      height={100}
-                      priority
-                      unoptimized
-                      alt="lesson"
-                      draggable={false}
-                    />
-                    <p>{lesson.name}</p>
-                    <button onClick={() => handlePlay(lesson.link)}>Смотреть</button>
-                  </div>
-                )}
+          return (
+            <Fragment key={i}>
+              {isLock || !(activeTabId === 0 ? true : weekIsCompleted) ? (
+                <div className={styles.lessonLock}>
+                  <span>Этот день будет доступен, когда ты закончишь текущий</span>
+                </div>
+              ) : (
+                <div className={styles.lesson}>
+                  <Image
+                    src={lesson?.image}
+                    width={200}
+                    height={100}
+                    priority
+                    unoptimized
+                    alt="lesson"
+                    draggable={false}
+                  />
+                  <p>{lesson.name}</p>
+                  <button onClick={() => handlePlay(lesson.link)}>Смотреть</button>
+                </div>
+              )}
 
-                {isVisiblePlayer && (
-                  <div className={styles.video}>
-                    <div className={styles.close} onClick={() => setVisiblePlayer(false)}>
-                      <MaterialIcon name="MdClose" />
-                    </div>
-                    <Player url={String(videoLink)} />
+              {isVisiblePlayer && (
+                <div className={styles.video}>
+                  <div className={styles.close} onClick={() => setVisiblePlayer(false)}>
+                    <MaterialIcon name="MdClose" />
                   </div>
-                )}
-              </Fragment>
-            )
-          },
-        )}
+                  <Player url={String(videoLink)} />
+                </div>
+              )}
+            </Fragment>
+          )
+        },
+      )}
       {activeTabDayId <= activeId &&
+        (activeTabId === 0 ? true : weekIsCompleted) &&
         (completedLessons?.some((val: number) =>
           courseSortedLessons[activeTabId][activeTabDayId]
             ?.map((val: ISortedLessonsInCourses) => val.id)
