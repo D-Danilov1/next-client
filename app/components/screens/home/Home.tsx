@@ -36,7 +36,7 @@ const Home = () => {
             <p className={styles.text}>Выберите курс</p>
             <div className={styles.cards}>
               {!isLoading ? (
-                courses?.map((course) => (
+                courses?.length && courses?.map((course) => (
                   <div className={styles.card} key={course.id}>
                     <Link href={getCourseUrl(String(course.id))}>
                       <Image
