@@ -41,14 +41,14 @@ const Course = () => {
     }
   }, [isVisiblePlayer])
 
-  const ids =
-    courseSortedLessons &&
-    courseSortedLessons[0].flatMap((lessonArray: any) =>
-      lessonArray.map((lesson: any) => lesson.id),
-    )
+  const weeksIsCompleted: boolean[] = []
 
-  console.log(ids)
-  const weekIsCompleted = ids?.every((id: number) => completedLessons?.includes(id))
+  if (courseSortedLessons) {
+    for (let key of courseSortedLessons) {
+      const ids = key.flatMap((lessonArray: any) => lessonArray.map((lesson: any) => lesson.id))
+      weeksIsCompleted.push(ids?.every((id: number) => completedLessons?.includes(id)))
+    }
+  }
 
   const handleComplete = async () => {
     if (user) {
@@ -106,7 +106,11 @@ const Course = () => {
               activeId = i + 1
             }
 
-            const isLock = activeId !== i || !(activeTabId === 0 ? true : weekIsCompleted)
+            const isLock =
+              activeId !== i ||
+              !(activeTabId === 0
+                ? true
+                : weeksIsCompleted[activeTabId === 0 ? activeTabId : activeTabId - 1])
 
             return (
               <div
@@ -140,7 +144,10 @@ const Course = () => {
 
             return (
               <Fragment key={i}>
-                {isLock || !(activeTabId === 0 ? true : weekIsCompleted) ? (
+                {isLock ||
+                !(activeTabId === 0
+                  ? true
+                  : weeksIsCompleted[activeTabId === 0 ? activeTabId : activeTabId - 1]) ? (
                   <div className={styles.lessonLock}>
                     <span>Этот день будет доступен, когда ты закончишь текущий</span>
                   </div>
@@ -174,7 +181,9 @@ const Course = () => {
         )
       )}
       {activeTabDayId <= activeId &&
-        (activeTabId === 0 ? true : weekIsCompleted) &&
+        (activeTabId === 0
+          ? true
+          : weeksIsCompleted[activeTabId === 0 ? activeTabId : activeTabId - 1]) &&
         (completedLessons?.some(
           (val: number) =>
             courseSortedLessons &&
