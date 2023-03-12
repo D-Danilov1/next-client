@@ -3,7 +3,7 @@
   @apply flex items-center justify-start pt-3 border-l-0 border-r-0 overflow-x-scroll;
   > div {
     border-bottom: 2px solid transparent;
-    @apply cursor-pointer pb-3 px-3;
+    @apply cursor-pointer pb-3 px-3 min-w-[100px];
   }
 }
 .tablist::-webkit-scrollbar {
@@ -12,7 +12,7 @@
 .days {
   @apply flex items-center justify-start p-5 gap-5 overflow-x-scroll;
   .day {
-    @apply p-2 px-4 min-w-[193px] rounded-md border-gray border cursor-pointer relative select-none;
+    @apply p-2 px-4 min-w-[195px] rounded-md border-gray border cursor-pointer relative select-none;
     > span {
       @apply text-gray mb-1 flex;
     }
@@ -27,7 +27,7 @@
     }
   }
   .activeDay {
-    @apply p-2 px-4 min-w-[193px] rounded-md border-blue border;
+    @apply p-2 px-4 min-w-[195px] rounded-md border-blue border;
   }
 }
 .days::-webkit-scrollbar {
