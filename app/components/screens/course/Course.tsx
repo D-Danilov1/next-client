@@ -47,6 +47,7 @@ const Course = () => {
       lessonArray.map((lesson: any) => lesson.id),
     )
 
+  console.log(ids)
   const weekIsCompleted = ids?.every((id: number) => completedLessons?.includes(id))
 
   const handleComplete = async () => {

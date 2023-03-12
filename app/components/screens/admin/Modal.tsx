@@ -10,14 +10,13 @@ import {
   UseFormReset,
 } from 'react-hook-form'
 import Modal from 'react-modal'
-import { UseMutateAsyncFunction } from 'react-query'
 
 import MaterialIcon from '@/components/ui/MaterialIcon'
 import Field from '@/components/ui/form-elements/Field'
 import UploadField from '@/components/ui/form-elements/UploadField/UploadFields'
 import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
-import { ICourses, ICoursesCreate, IWeeksCreate } from '@/shared/types/request.types'
+import {  ICoursesCreate, IWeeksCreate } from '@/shared/types/request.types'
 
 import styles from './Admin.module.scss'
 
