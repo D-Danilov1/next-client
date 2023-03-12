@@ -1,10 +1,13 @@
 .tablist {
   border: 1px solid #212123;
-  @apply flex items-center justify-start pt-3 border-l-0 border-r-0;
+  @apply flex items-center justify-start pt-3 border-l-0 border-r-0 overflow-x-scroll;
   > div {
     border-bottom: 2px solid transparent;
-    @apply cursor-pointer pb-3 px-5;
+    @apply cursor-pointer pb-3 px-3;
   }
+}
+.tablist::-webkit-scrollbar {
+  display: none;
 }
 .days {
   @apply flex items-center justify-start p-5 gap-5 overflow-x-scroll;
