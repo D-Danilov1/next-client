@@ -78,22 +78,6 @@
   justify-content: center;
 }
 
-.close {
-  display: block;
-  position: absolute;
-  z-index: 2;
-  top: 15px;
-  left: 15px;
-  cursor: pointer;
-
-  color: #fff;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-  > svg {
-    width: 30px;
-    height: 30px;
-  }
-}
 .text {
   @apply text-center text-gray text-2xl mt-5;
 }

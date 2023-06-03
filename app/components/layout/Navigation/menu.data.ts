@@ -5,7 +5,7 @@ import { IMenu } from './menu.interface'
 export const navMenu: IMenu = {
   items: [
     {
-      title: 'Next',
+      title: 'На главную',
       icon: Logo,
       link: '/',
     },

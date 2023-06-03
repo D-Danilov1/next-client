@@ -12,7 +12,8 @@ import Preview2 from '@/assets/images/preview2.jpg'
 import Preview from '@/assets/images/preview.jpg'
 
 import styles from './Home.module.scss'
-import Players from './Players'
+import Players from './PlayerWrapper'
+import PlayerWrapper from './PlayerWrapper'
 import { useHome } from './useHome'
 
 const Home = () => {
@@ -22,21 +23,16 @@ const Home = () => {
     <Layout>
       <div className={styles.wrapper}>
         <Heading title="Тренировки" />
-        <Players url="/uploads/default/start2.mp4" image={Preview} />
+        <PlayerWrapper url="/uploads/default/start2.mp4" image={Preview} />
         <SubHeading title="Выбери курс из разделов ниже и начни свою трансформацию" />
         <Tabs>
-          {/* <TabList className={styles.tablist}>
-            <Tab>Без подписки</Tab>
-            <Tab>Challenge</Tab>
-            <Tab>Дом</Tab>
-            <Tab>Гантели</Tab>
-          </TabList> */}
           <TabPanel>
-            <Players url="/uploads/default/start.mp4" image={Preview2} />
+            <PlayerWrapper url="/uploads/default/start.mp4" image={Preview2} />
             <p className={styles.text}>Выберите курс</p>
             <div className={styles.cards}>
               {!isLoading ? (
-                courses?.length && courses?.map((course) => (
+                courses?.length &&
+                courses?.map((course) => (
                   <div className={styles.card} key={course.id}>
                     <Link href={getCourseUrl(String(course.id))}>
                       <Image

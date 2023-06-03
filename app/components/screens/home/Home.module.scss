@@ -14,7 +14,7 @@
   @apply my-4 text-xl pl-5;
 }
 .video {
-  @apply relative;
+  @apply relative w-full h-[200px];
   .active {
     @apply hidden;
   }
@@ -22,6 +22,19 @@
     @apply absolute top-0 left-0 w-full h-full z-50 object-cover cursor-pointer;
   }
 }
+.videoWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(#080a12, 0.85);
+  transition: opacity 0.3s, visibility 0.3s;
+  display: flex;
+  justify-content: center;
+}
+
 .cards {
   @apply flex items-center gap-5 justify-between flex-wrap px-5;
   .card {
@@ -55,5 +68,4 @@
   .skeletonLoader {
     @apply relative mb-8 h-[250px] w-full;
   }
- 
 }

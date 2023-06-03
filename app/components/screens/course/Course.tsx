@@ -169,10 +169,7 @@ const Course = () => {
 
                 {isVisiblePlayer && (
                   <div className={styles.video}>
-                    <div className={styles.close} onClick={() => setVisiblePlayer(false)}>
-                      <MaterialIcon name="MdClose" />
-                    </div>
-                    <Player url={String(videoLink)} />
+                    <Player url={lesson.link} setVisiblePlayer={setVisiblePlayer} />
                   </div>
                 )}
               </Fragment>
