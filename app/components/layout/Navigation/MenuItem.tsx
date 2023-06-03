@@ -16,7 +16,7 @@ const MenuItem: FC<IMenuItem> = ({ icon, link, title }) => {
         [styles.active]: asPath === link,
       })}
     >
-      <Link href={link}>
+      <Link href={link} className={styles.link}>
         <Image
           src={icon}
           width={20}
