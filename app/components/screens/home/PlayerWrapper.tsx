@@ -18,7 +18,7 @@ const PlayerWrapper: FC<IPlayerWrapper> = ({ url, image }) => {
     <div className={styles.video}>
       {isVisiblePlayer && (
         <div className={styles.videoWrapper}>
-          <Player url={url} setVisiblePlayer={setIsVisiblePlayer} />
+          <Player url={url} setVisiblePlayer={setIsVisiblePlayer} isVisiblePlayer={isVisiblePlayer} />
         </div>
       )}
       <Image

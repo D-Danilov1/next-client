@@ -12,7 +12,6 @@ import Preview2 from '@/assets/images/preview2.jpg'
 import Preview from '@/assets/images/preview.jpg'
 
 import styles from './Home.module.scss'
-import Players from './PlayerWrapper'
 import PlayerWrapper from './PlayerWrapper'
 import { useHome } from './useHome'
 

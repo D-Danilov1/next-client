@@ -1,6 +1,5 @@
 import cn from 'clsx'
-import { FC, useRef, useState } from 'react'
-import { findDOMNode } from 'react-dom'
+import { FC, useEffect, useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
 
 import MaterialIcon from '../MaterialIcon'
@@ -9,14 +8,22 @@ import styles from './Player.module.scss'
 
 interface IPlayer {
   url: string
-  setVisiblePlayer?: (arg: boolean) => void
+  setVisiblePlayer: (arg: boolean) => void
+  isVisiblePlayer: boolean
 }
 
-const Player: FC<IPlayer> = ({ url, setVisiblePlayer }) => {
+const Player: FC<IPlayer> = ({ url, setVisiblePlayer, isVisiblePlayer }) => {
   const playerRef = useRef<ReactPlayer | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isRotated, setIsRotated] = useState(false)
-  // @ts-ignore
+
+  useEffect(() => {
+    if (isVisiblePlayer) {
+      document.body.classList.add(styles.lock)
+    } else {
+      document.body.classList.remove(styles.lock)
+    }
+  }, [isVisiblePlayer])
 
   const toggleVideoMode = () => {
     setIsRotated(!isRotated)
@@ -50,7 +57,7 @@ const Player: FC<IPlayer> = ({ url, setVisiblePlayer }) => {
         <div className={styles.rotate} onClick={toggleVideoMode}>
           <MaterialIcon name="MdOutlineCropRotate" />
         </div>
-        <div className={styles.close} onClick={() => setVisiblePlayer && setVisiblePlayer(false)}>
+        <div className={styles.close} onClick={() => setVisiblePlayer(false)}>
           <MaterialIcon name="MdClose" />
         </div>
       </div>

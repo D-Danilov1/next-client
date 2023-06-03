@@ -33,14 +33,6 @@ const Course = () => {
     useCourse()
   const { user } = useAuth()
 
-  useEffect(() => {
-    if (isVisiblePlayer) {
-      document.body.classList.add(styles.lock)
-    } else {
-      document.body.classList.remove(styles.lock)
-    }
-  }, [isVisiblePlayer])
-
   const weeksIsCompleted: boolean[] = []
 
   if (courseSortedLessons) {
@@ -169,7 +161,7 @@ const Course = () => {
 
                 {lesson.link === videoLink && isVisiblePlayer && (
                   <div className={styles.video}>
-                    <Player url={videoLink} setVisiblePlayer={setVisiblePlayer} />
+                    <Player url={videoLink} setVisiblePlayer={setVisiblePlayer} isVisiblePlayer={isVisiblePlayer} />
                   </div>
                 )}
               </Fragment>
