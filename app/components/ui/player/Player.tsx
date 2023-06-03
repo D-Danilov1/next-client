@@ -15,12 +15,22 @@ interface IPlayer {
 const Player: FC<IPlayer> = ({ url, setVisiblePlayer }) => {
   const playerRef = useRef<ReactPlayer | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
-  const [isRotated, setIsRotated] = useState(false)
+  const [isRotated, setIsRotated] = useState(true)
   // @ts-ignore
 
   const toggleVideoMode = () => {
     setIsRotated(!isRotated)
   }
+
+  let portrait = window.matchMedia('(orientation: portrait)')
+
+  portrait.addEventListener('change', function (e) {
+    if (e.matches) {
+      setIsRotated(true)
+    } else {
+      setIsRotated(false)
+    }
+  })
 
   return (
     <div className={styles.player}>
