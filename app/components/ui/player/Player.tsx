@@ -39,6 +39,23 @@ const Player: FC<IPlayer> = ({ url, setVisiblePlayer, isVisiblePlayer }) => {
   //   }
   // })
 
+  window.addEventListener(
+    'orientationchange',
+    function () {
+
+     const iframe = playerRef.current?.getInternalPlayer().element.contentWindow
+     console.log(iframe)
+      // var iframe = document.getElementById('youriframe').contentWindow
+      iframe.postMessage(
+        {
+          orientation: window.orientation,
+        },
+        "https://vimeo.com/773155125/9841e82c26",
+      )
+    },
+    false,
+  )
+
   return (
     <div className={styles.player}>
       <div
@@ -58,6 +75,7 @@ const Player: FC<IPlayer> = ({ url, setVisiblePlayer, isVisiblePlayer }) => {
           ref={playerRef}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
+          playsinline
         />
       </div>
 

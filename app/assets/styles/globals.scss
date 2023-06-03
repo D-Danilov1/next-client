@@ -78,3 +78,9 @@ input[type='number'] {
   border-radius: 5px 5px 0 0;
   outline: none;
 }
+iframe button {
+  z-index: 9999 !important;
+}
+button {
+  z-index: 9999 !important;
+}
