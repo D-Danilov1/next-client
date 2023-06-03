@@ -43,6 +43,12 @@
   @apply mb-3 mx-auto px-14 py-2.5 rounded-xl max-w-[280px] h-[46px] w-full text-center border-blue border flex items-center justify-center mt-5;
 }
 
+.lock {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
 .lesson {
   @apply relative block;
   > img {

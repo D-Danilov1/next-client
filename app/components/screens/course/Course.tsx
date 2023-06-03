@@ -35,9 +35,9 @@ const Course = () => {
 
   useEffect(() => {
     if (isVisiblePlayer) {
-      document.body.classList.add('lock')
+      document.body.classList.add(styles.lock)
     } else {
-      document.body.classList.remove('lock')
+      document.body.classList.remove(styles.lock)
     }
   }, [isVisiblePlayer])
 

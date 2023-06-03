@@ -15,7 +15,7 @@ interface IPlayer {
 const Player: FC<IPlayer> = ({ url, setVisiblePlayer }) => {
   const playerRef = useRef<ReactPlayer | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
-  const [isRotated, setIsRotated] = useState(true)
+  const [isRotated, setIsRotated] = useState(false)
   // @ts-ignore
 
   const toggleVideoMode = () => {
