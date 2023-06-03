@@ -9,25 +9,5 @@ export const navMenu: IMenu = {
       icon: Logo,
       link: '/',
     },
-    // {
-    // 	title: 'Цели',
-    // 	icon: 'MdListAlt',
-    // 	link: '/goals',
-    // },
-    // {
-    // 	title: 'Питание',
-    // 	icon: 'MdFoodBank',
-    // 	link: '/nutrition',
-    // },
-    // {
-    // 	title: 'Разум',
-    // 	icon: 'MdUpgrade',
-    // 	link: '/mind',
-    // },
-    // {
-    // 	title: 'Профиль',
-    // 	icon: 'MdPerson',
-    // 	link: '/profile',
-    // },
   ],
 }

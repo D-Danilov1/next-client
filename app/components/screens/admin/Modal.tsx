@@ -16,7 +16,7 @@ import Field from '@/components/ui/form-elements/Field'
 import UploadField from '@/components/ui/form-elements/UploadField/UploadFields'
 import SubHeading from '@/components/ui/sub-heading/SubHeading'
 
-import {  ICoursesCreate, IWeeksCreate } from '@/shared/types/request.types'
+import { ICoursesCreate, IWeeksCreate } from '@/shared/types/request.types'
 
 import styles from './Admin.module.scss'
 

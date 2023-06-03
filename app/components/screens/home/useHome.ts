@@ -11,7 +11,7 @@ export const useHome = () => {
   return useMemo(
     () => ({
       courses,
-      isLoading
+      isLoading,
     }),
     [courses, isLoading],
   )

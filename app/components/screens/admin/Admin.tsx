@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { SubmitHandler } from 'react-hook-form'
 
 import Layout from '@/components/layout/Layout'
 import Heading from '@/components/ui/heading/Heading'
