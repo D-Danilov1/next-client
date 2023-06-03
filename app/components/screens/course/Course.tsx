@@ -18,6 +18,7 @@ import { useCourse } from './useCourse'
 
 const Course = () => {
   const [isVisiblePlayer, setVisiblePlayer] = useState(false)
+
   const [activeTabId, setActiveTabId] = useState(0)
   const [activeTabDayId, setActiveTabDayId] = useState(0)
   const [videoLink, setVideoLink] = useState<string | null>(null)
@@ -30,7 +31,6 @@ const Course = () => {
 
   const { course, courseSortedLessons, mutateAsync, completedLessons, isLoadingSortedLessons } =
     useCourse()
-
   const { user } = useAuth()
 
   useEffect(() => {
@@ -141,7 +141,6 @@ const Course = () => {
           (el: ISortedLessonsInCourses, i: number) => {
             const { lesson } = el
             const isLock = activeTabDayId > activeId
-
             return (
               <Fragment key={i}>
                 {isLock ||
@@ -153,7 +152,7 @@ const Course = () => {
                   </div>
                 ) : (
                   <div className={styles.lesson}>
-                    <Image 
+                    <Image
                       className={styles.img}
                       src={lesson?.image}
                       width={200}
@@ -168,9 +167,9 @@ const Course = () => {
                   </div>
                 )}
 
-                {isVisiblePlayer && (
+                {lesson.link === videoLink && isVisiblePlayer && (
                   <div className={styles.video}>
-                    <Player url={lesson.link} setVisiblePlayer={setVisiblePlayer} />
+                    <Player url={videoLink} setVisiblePlayer={setVisiblePlayer} />
                   </div>
                 )}
               </Fragment>

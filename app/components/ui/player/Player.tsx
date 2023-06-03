@@ -1,5 +1,6 @@
 import cn from 'clsx'
 import { FC, useRef, useState } from 'react'
+import { findDOMNode } from 'react-dom'
 import ReactPlayer from 'react-player'
 
 import MaterialIcon from '../MaterialIcon'
@@ -8,14 +9,14 @@ import styles from './Player.module.scss'
 
 interface IPlayer {
   url: string
-  autoPlay?: boolean
   setVisiblePlayer?: (arg: boolean) => void
 }
 
-const Player: FC<IPlayer> = ({ url, autoPlay = false, setVisiblePlayer }) => {
+const Player: FC<IPlayer> = ({ url, setVisiblePlayer }) => {
   const playerRef = useRef<ReactPlayer | null>(null)
-  const [isPlaying, setIsPlaying] = useState(autoPlay)
+  const [isPlaying, setIsPlaying] = useState(true)
   const [isRotated, setIsRotated] = useState(false)
+  // @ts-ignore
 
   const toggleVideoMode = () => {
     setIsRotated(!isRotated)
