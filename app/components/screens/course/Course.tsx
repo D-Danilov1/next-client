@@ -17,12 +17,12 @@ import styles from './Course.module.scss'
 import { useCourse } from './useCourse'
 
 const Course = () => {
-  const [isVisiblePlayer, setVisiblePlayer] = useState(false)
+  const [isVisiblePlayer, setVisiblePlayer] = useState<boolean>(false)
 
-  const [activeTabId, setActiveTabId] = useState(0)
-  const [activeTabDayId, setActiveTabDayId] = useState(0)
+  const [activeTabId, setActiveTabId] = useState<number>(0)
+  const [activeTabDayId, setActiveTabDayId] = useState<number>(0)
   const [videoLink, setVideoLink] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const handlePlay = (url: string) => {
     setVisiblePlayer(true)
@@ -161,7 +161,11 @@ const Course = () => {
 
                 {lesson.link === videoLink && isVisiblePlayer && (
                   <div className={styles.video}>
-                    <Player url={videoLink} setVisiblePlayer={setVisiblePlayer} isVisiblePlayer={isVisiblePlayer} />
+                    <Player
+                      url={videoLink}
+                      setVisiblePlayer={setVisiblePlayer}
+                      isVisiblePlayer={isVisiblePlayer}
+                    />
                   </div>
                 )}
               </Fragment>
