@@ -15,7 +15,7 @@ interface IPlayer {
 const Player: FC<IPlayer> = ({ url, setVisiblePlayer, isVisiblePlayer }) => {
   const playerRef = useRef<ReactPlayer | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
-  // const [isRotated, setIsRotated] = useState(false)
+  const [isRotated, setIsRotated] = useState(false)
 
   useEffect(() => {
     if (isVisiblePlayer) {
@@ -25,46 +25,23 @@ const Player: FC<IPlayer> = ({ url, setVisiblePlayer, isVisiblePlayer }) => {
     }
   }, [isVisiblePlayer])
 
-  // const toggleVideoMode = () => {
-  //   setIsRotated(!isRotated)
-  // }
+  const toggleVideoMode = () => {
+    setIsRotated(!isRotated)
+  }
 
-  // let portrait = window.matchMedia('(orientation: portrait)')
+  let portrait = window.matchMedia('(orientation: portrait)')
 
-  // portrait.addEventListener('change', function (e) {
-  //   if (e.matches) {
-  //     setIsRotated(true)
-  //   } else {
-  //     setIsRotated(false)
-  //   }
-  // })
-
-  window.addEventListener(
-    'orientationchange',
-    function () {
-
-     const iframe = playerRef.current?.getInternalPlayer().element.contentWindow
-     console.log(iframe)
-      // var iframe = document.getElementById('youriframe').contentWindow
-      iframe.postMessage(
-        {
-          orientation: window.orientation,
-        },
-        "https://vimeo.com/773155125/9841e82c26",
-      )
-    },
-    false,
-  )
+  portrait.addEventListener('change', function (e) {
+    if (e.matches) {
+      setIsRotated(true)
+    } else {
+      setIsRotated(false)
+    }
+  })
 
   return (
     <div className={styles.player}>
-      <div
-        className={
-          // isRotated ?
-          // styles.containerRotated :
-          styles.container
-        }
-      >
+      <div className={isRotated ? styles.containerRotated : styles.container}>
         <ReactPlayer
           id="myvideo"
           url="https://vimeo.com/773155125/9841e82c26"
@@ -79,14 +56,10 @@ const Player: FC<IPlayer> = ({ url, setVisiblePlayer, isVisiblePlayer }) => {
         />
       </div>
 
-      <div
-        className={cn(
-          styles.controls, // , { [styles.controlsRotated]: isRotated }
-        )}
-      >
-        {/* <div className={styles.rotate} onClick={toggleVideoMode}>
+      <div className={cn(styles.controls, { [styles.controlsRotated]: isRotated })}>
+        <div className={styles.rotate} onClick={toggleVideoMode}>
           <MaterialIcon name="MdOutlineCropRotate" />
-        </div> */}
+        </div>
         <div className={styles.close} onClick={() => setVisiblePlayer(false)}>
           <MaterialIcon name="MdClose" />
         </div>
