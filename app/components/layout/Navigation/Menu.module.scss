@@ -3,6 +3,10 @@
   transition: all 0.8s ease-in-out;
   @apply px-4 py-6 relative z-20 sm:py-2 sm15:px-2 sm3:py-2;
 
+  .link {
+    padding: 6px 0;
+  }
+
   .ul {
     @apply animate-fade sm:flex sm:justify-center sm:items-center sm:w-full sm:gap-2.5;
     > li {

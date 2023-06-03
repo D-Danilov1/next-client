@@ -153,7 +153,8 @@ const Course = () => {
                   </div>
                 ) : (
                   <div className={styles.lesson}>
-                    <Image
+                    <Image 
+                      className={styles.img}
                       src={lesson?.image}
                       width={200}
                       height={100}

@@ -48,9 +48,11 @@
         .content {
           @apply text-xl sm3:text-lg text-white select-none;
           > p {
+            color: black;
             @apply text-xl;
           }
           > span {
+            color: black;
             @apply text-sm max-w-[63%] block sm15:hidden;
           }
         }
