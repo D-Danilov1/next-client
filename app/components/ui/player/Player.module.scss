@@ -20,31 +20,31 @@
     opacity: 0.5;
     transition: all 0.3s ease;
     > svg {
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
     }
   }
   .close {
-    left: 15px;
+    left: 20px;
   }
 }
 
 .controlsRotated {
   > div {
     bottom: 45px;
-    right: 15px;
+    right: 10px;
     left: auto;
     display: flex;
     flex-direction: row;
     top: 50px;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
   .close {
-    right: 15px;
+    right: 10px;
     bottom: 50px;
     left: auto;
-    top: 15px;
+    top: 20px;
   }
 }
 

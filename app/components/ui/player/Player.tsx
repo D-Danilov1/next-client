@@ -25,7 +25,7 @@ const Player: FC<IPlayer> = ({ url, autoPlay = false, setVisiblePlayer }) => {
     <div className={styles.player}>
       <div className={isRotated ? styles.containerRotated : styles.container}>
         <ReactPlayer
-          url={url}
+          url="https://vimeo.com/773155125/9841e82c26"
           controls={true}
           width="100%"
           height="100%"
