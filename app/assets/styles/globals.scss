@@ -20,6 +20,7 @@ iframe {
   border: none; /* Reset default border */
   height: 100vh; /* Viewport-relative units */
   width: 100vw;
+  z-index: 9999;
 }
 
 html,

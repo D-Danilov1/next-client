@@ -19,6 +19,14 @@ import { useCourse } from './useCourse'
 const Course = () => {
   const [isVisiblePlayer, setVisiblePlayer] = useState<boolean>(false)
 
+  useEffect(() => {
+    if (isVisiblePlayer) {
+      document.body.classList.add(styles.lock)
+    } else {
+      document.body.classList.remove(styles.lock)
+    }
+  }, [isVisiblePlayer])
+
   const [activeTabId, setActiveTabId] = useState<number>(0)
   const [activeTabDayId, setActiveTabDayId] = useState<number>(0)
   const [videoLink, setVideoLink] = useState<string | null>(null)
@@ -161,11 +169,7 @@ const Course = () => {
 
                 {lesson.link === videoLink && isVisiblePlayer && (
                   <div className={styles.video}>
-                    <Player
-                      url={videoLink}
-                      setVisiblePlayer={setVisiblePlayer}
-                      isVisiblePlayer={isVisiblePlayer}
-                    />
+                    <Player url={videoLink} setVisiblePlayer={setVisiblePlayer} />
                   </div>
                 )}
               </Fragment>

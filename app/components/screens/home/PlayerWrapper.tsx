@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import Image, { StaticImageData } from 'next/image'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import Player from '@/components/ui/player/Player'
 
@@ -14,11 +14,19 @@ interface IPlayerWrapper {
 const PlayerWrapper: FC<IPlayerWrapper> = ({ url, image }) => {
   const [isVisiblePlayer, setIsVisiblePlayer] = useState(false)
 
+  useEffect(() => {
+    if (isVisiblePlayer) {
+      document.body.classList.add(styles.lock)
+    } else {
+      document.body.classList.remove(styles.lock)
+    }
+  }, [isVisiblePlayer])
+
   return (
     <div className={styles.video}>
       {isVisiblePlayer && (
         <div className={styles.videoWrapper}>
-          <Player url={url} setVisiblePlayer={setIsVisiblePlayer} isVisiblePlayer={isVisiblePlayer} />
+          <Player url={url} setVisiblePlayer={setIsVisiblePlayer} />
         </div>
       )}
       <Image

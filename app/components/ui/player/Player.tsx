@@ -9,21 +9,12 @@ import styles from './Player.module.scss'
 interface IPlayer {
   url: string
   setVisiblePlayer: (arg: boolean) => void
-  isVisiblePlayer: boolean
 }
 
-const Player: FC<IPlayer> = ({ url, setVisiblePlayer, isVisiblePlayer }) => {
+const Player: FC<IPlayer> = ({ url, setVisiblePlayer }) => {
   const playerRef = useRef<ReactPlayer | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isRotated, setIsRotated] = useState(false)
-
-  useEffect(() => {
-    if (isVisiblePlayer) {
-      document.body.classList.add(styles.lock)
-    } else {
-      document.body.classList.remove(styles.lock)
-    }
-  }, [isVisiblePlayer])
 
   const toggleVideoMode = () => {
     setIsRotated(!isRotated)
