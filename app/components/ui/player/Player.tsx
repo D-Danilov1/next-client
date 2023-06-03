@@ -10,13 +10,12 @@ interface IPlayer {
   url: string
   autoPlay?: boolean
   setVisiblePlayer?: (arg: boolean) => void
-  isHorizontal?: boolean
 }
 
-const Player: FC<IPlayer> = ({ url, autoPlay = false, setVisiblePlayer, isHorizontal = true }) => {
+const Player: FC<IPlayer> = ({ url, autoPlay = false, setVisiblePlayer }) => {
   const playerRef = useRef<ReactPlayer | null>(null)
   const [isPlaying, setIsPlaying] = useState(autoPlay)
-  const [isRotated, setIsRotated] = useState(isHorizontal)
+  const [isRotated, setIsRotated] = useState(false)
 
   const toggleVideoMode = () => {
     setIsRotated(!isRotated)
@@ -26,7 +25,7 @@ const Player: FC<IPlayer> = ({ url, autoPlay = false, setVisiblePlayer, isHorizo
     <div className={styles.player}>
       <div className={isRotated ? styles.containerRotated : styles.container}>
         <ReactPlayer
-          url="https://vimeo.com/169599296"
+          url={url}
           controls={true}
           width="100%"
           height="100%"
